@@ -1,0 +1,47 @@
+﻿{
+    "$schema": "http://json.schemastore.org/launchsettings.json",
+    "iisSettings": {
+        "windowsAuthentication": false,
+        "anonymousAuthentication": true,
+        "iisExpress": {
+            // Puerto IIS Express único para Comunicaciones.Api
+            "applicationUrl": "http://localhost:18102",
+            "sslPort": 44302
+        }
+    },
+    "profiles": {
+        // 1) Perfil “Project” que usa Kestrel puro en http://localhost:5093
+        "Comunicaciones.Api (Project)": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "applicationUrl": "http://localhost:5100",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+
+        // 2) Perfil “HTTPS” para TLS en puerto propio (por ej. 5094)
+        "Comunicaciones.Api (HTTPS)": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "applicationUrl": "https://localhost:5094",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+
+        // 3) Perfil “IIS Express” lee puertos desde iisSettings (18102/44302)
+        "IIS Express": {
+            "commandName": "IISExpress",
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        }
+    }
+}

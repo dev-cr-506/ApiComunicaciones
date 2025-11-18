@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AutoBarato.Comunicaciones.Api</name>
+    </assembly>
+    <members>
+        <member name="T:AutoBarato.Comunicaciones.Api.Middleware.StrictExpiryOnlyMiddleware">
+            <summary>
+            Si el request trae Authorization: Bearer ...:
+             - Intenta autenticar con el esquema JWT
+             - Si falla por expiración/invalidez → 401
+            Si NO trae Authorization, deja pasar como anónimo.
+            </summary>
+        </member>
+    </members>
+</doc>

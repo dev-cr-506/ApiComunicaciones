@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "AutoBarato.Comunicaciones.Domain/1.0.0": {
+        "runtime": {
+          "AutoBarato.Comunicaciones.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AutoBarato.Comunicaciones.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

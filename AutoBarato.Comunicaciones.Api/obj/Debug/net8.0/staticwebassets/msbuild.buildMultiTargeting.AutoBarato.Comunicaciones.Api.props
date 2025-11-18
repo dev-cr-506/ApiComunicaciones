@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AutoBarato.Comunicaciones.Api.props" />
+</Project>
