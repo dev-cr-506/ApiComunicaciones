@@ -9,3 +9,16 @@ C:\Users\rjbrizuelah\source\repos\AutoBarato.Comunicaciones.Api\AutoBarato.Comun
 C:\Users\rjbrizuelah\source\repos\AutoBarato.Comunicaciones.Api\AutoBarato.Comunicaciones.Domain\obj\Debug\net8.0\refint\AutoBarato.Comunicaciones.Domain.dll
 C:\Users\rjbrizuelah\source\repos\AutoBarato.Comunicaciones.Api\AutoBarato.Comunicaciones.Domain\obj\Debug\net8.0\AutoBarato.Comunicaciones.Domain.pdb
 C:\Users\rjbrizuelah\source\repos\AutoBarato.Comunicaciones.Api\AutoBarato.Comunicaciones.Domain\obj\Debug\net8.0\ref\AutoBarato.Comunicaciones.Domain.dll
+C:\Users\rjbrizuelah\Documents\GitHub\ApiComunicaciones\AutoBarato.Comunicaciones.Domain\bin\Debug\net8.0\AutoBarato.Comunicaciones.Domain.deps.json
+C:\Users\rjbrizuelah\Documents\GitHub\ApiComunicaciones\AutoBarato.Comunicaciones.Domain\bin\Debug\net8.0\AutoBarato.Comunicaciones.Domain.dll
+C:\Users\rjbrizuelah\Documents\GitHub\ApiComunicaciones\AutoBarato.Comunicaciones.Domain\bin\Debug\net8.0\AutoBarato.Comunicaciones.Domain.pdb
+C:\Users\rjbrizuelah\Documents\GitHub\ApiComunicaciones\AutoBarato.Comunicaciones.Domain\obj\Debug\net8.0\AutoBarato.Comunicaciones.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rjbrizuelah\Documents\GitHub\ApiComunicaciones\AutoBarato.Comunicaciones.Domain\obj\Debug\net8.0\AutoBarato.Comunicaciones.Domain.AssemblyInfoInputs.cache
+C:\Users\rjbrizuelah\Documents\GitHub\ApiComunicaciones\AutoBarato.Comunicaciones.Domain\obj\Debug\net8.0\AutoBarato.Comunicaciones.Domain.AssemblyInfo.cs
+C:\Users\rjbrizuelah\Documents\GitHub\ApiComunicaciones\AutoBarato.Comunicaciones.Domain\obj\Debug\net8.0\AutoBarato.Comunicaciones.Domain.csproj.CoreCompileInputs.cache
+C:\Users\rjbrizuelah\Documents\GitHub\ApiComunicaciones\AutoBarato.Comunicaciones.Domain\obj\Debug\net8.0\AutoBarato.Comunicaciones.Domain.sourcelink.json
+C:\Users\rjbrizuelah\Documents\GitHub\ApiComunicaciones\AutoBarato.Comunicaciones.Domain\obj\Debug\net8.0\AutoBarato.Comunicaciones.Domain.dll
+C:\Users\rjbrizuelah\Documents\GitHub\ApiComunicaciones\AutoBarato.Comunicaciones.Domain\obj\Debug\net8.0\refint\AutoBarato.Comunicaciones.Domain.dll
+C:\Users\rjbrizuelah\Documents\GitHub\ApiComunicaciones\AutoBarato.Comunicaciones.Domain\obj\Debug\net8.0\AutoBarato.Comunicaciones.Domain.pdb
+C:\Users\rjbrizuelah\Documents\GitHub\ApiComunicaciones\AutoBarato.Comunicaciones.Domain\obj\Debug\net8.0\ref\AutoBarato.Comunicaciones.Domain.dll
+C:\Users\rjbrizuelah\Documents\GitHub\ApiComunicaciones\AutoBarato.Comunicaciones.Domain\obj\Debug\net8.0\AutoBarato.Comunicaciones.Domain.csproj.AssemblyReference.cache

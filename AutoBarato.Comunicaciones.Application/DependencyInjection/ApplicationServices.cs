@@ -15,6 +15,7 @@ namespace AutoBarato.Comunicaciones.Application.DependencyInjection
             // Registrar servicios de repositorio
             services.AddScoped<IChatService, ChatService>();
             services.AddScoped<IChatMediaService, ChatMediaService>();
+            services.AddScoped<IApiFilesService, ApiFilesService>();
 
             return services;
         }

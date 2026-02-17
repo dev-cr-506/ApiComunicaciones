@@ -1,90 +1,98 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\",
+  "WorkspaceRootPath": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.infrastructure\\dataaccess\\repositories\\chatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|solutionrelative:autobarato.comunicaciones.infrastructure\\dataaccess\\repositories\\chatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.infrastructure\\dataaccess\\storedprocedureexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|solutionrelative:autobarato.comunicaciones.infrastructure\\dataaccess\\storedprocedureexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.application\\services\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\services\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.api\\carchathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|solutionrelative:autobarato.comunicaciones.api\\carchathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.api\\controllers\\conversacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|solutionrelative:autobarato.comunicaciones.api\\controllers\\conversacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.application\\dtos\\chatconversationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\dtos\\chatconversationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D75C0C34-3D92-4745-BF6E-8799118A31FF}|AutoBarato.Comunicaciones.Domain\\AutoBarato.Comunicaciones.Domain.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.domain\\entities\\chatconversation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D75C0C34-3D92-4745-BF6E-8799118A31FF}|AutoBarato.Comunicaciones.Domain\\AutoBarato.Comunicaciones.Domain.csproj|solutionrelative:autobarato.comunicaciones.domain\\entities\\chatconversation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.infrastructure\\dataaccess\\comunicacionesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|solutionrelative:autobarato.comunicaciones.infrastructure\\dataaccess\\comunicacionesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|solutionrelative:autobarato.comunicaciones.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.api\\utils\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|solutionrelative:autobarato.comunicaciones.api\\utils\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.application\\dependencyinjection\\applicationservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.application\\dependencyinjection\\applicationservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\dependencyinjection\\applicationservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.api\\autobarato.comunicaciones.api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|solutionrelative:autobarato.comunicaciones.api\\autobarato.comunicaciones.api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|solutionrelative:autobarato.comunicaciones.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.application\\interfaces\\ichatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\interfaces\\ichatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.api\\middleware\\strictexpiryonlymiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|solutionrelative:autobarato.comunicaciones.api\\middleware\\strictexpiryonlymiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.application\\services\\chatmediaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.application\\services\\chatmediaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\services\\chatmediaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.application\\interfaces\\ichatmediaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\interfaces\\ichatmediaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.api\\controllers\\conversacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|solutionrelative:autobarato.comunicaciones.api\\controllers\\conversacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.infrastructure\\dependencyinjection\\infrastructureservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|solutionrelative:autobarato.comunicaciones.infrastructure\\dependencyinjection\\infrastructureservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|solutionrelative:autobarato.comunicaciones.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D75C0C34-3D92-4745-BF6E-8799118A31FF}|AutoBarato.Comunicaciones.Domain\\AutoBarato.Comunicaciones.Domain.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.domain\\interfaces\\ichatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D75C0C34-3D92-4745-BF6E-8799118A31FF}|AutoBarato.Comunicaciones.Domain\\AutoBarato.Comunicaciones.Domain.csproj|solutionrelative:autobarato.comunicaciones.domain\\interfaces\\ichatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.application\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.application\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\source\\repos\\autobarato.comunicaciones.api\\autobarato.comunicaciones.application\\dtos\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.application\\services\\apifilesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\services\\apifilesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.application\\dtos\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\dtos\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.application\\interfaces\\iapifilesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\interfaces\\iapifilesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.api\\carchathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|solutionrelative:autobarato.comunicaciones.api\\carchathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.infrastructure\\dataaccess\\repositories\\chatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|solutionrelative:autobarato.comunicaciones.infrastructure\\dataaccess\\repositories\\chatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.application\\services\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\services\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.api\\autobarato.comunicaciones.api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|solutionrelative:autobarato.comunicaciones.api\\autobarato.comunicaciones.api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.infrastructure\\dataaccess\\storedprocedureexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|solutionrelative:autobarato.comunicaciones.infrastructure\\dataaccess\\storedprocedureexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.application\\dtos\\chatconversationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\dtos\\chatconversationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D75C0C34-3D92-4745-BF6E-8799118A31FF}|AutoBarato.Comunicaciones.Domain\\AutoBarato.Comunicaciones.Domain.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.domain\\entities\\chatconversation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D75C0C34-3D92-4745-BF6E-8799118A31FF}|AutoBarato.Comunicaciones.Domain\\AutoBarato.Comunicaciones.Domain.csproj|solutionrelative:autobarato.comunicaciones.domain\\entities\\chatconversation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.infrastructure\\dataaccess\\comunicacionesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|solutionrelative:autobarato.comunicaciones.infrastructure\\dataaccess\\comunicacionesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.api\\utils\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|solutionrelative:autobarato.comunicaciones.api\\utils\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.application\\interfaces\\ichatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\interfaces\\ichatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.api\\middleware\\strictexpiryonlymiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{688A65B3-02E2-49DD-A534-272F5FD649F4}|AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj|solutionrelative:autobarato.comunicaciones.api\\middleware\\strictexpiryonlymiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.application\\interfaces\\ichatmediaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EAC1410-E6FA-431A-85A5-C0DBEF099FCE}|AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj|solutionrelative:autobarato.comunicaciones.application\\interfaces\\ichatmediaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.infrastructure\\dependencyinjection\\infrastructureservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAD7E06F-9F06-4737-9C20-77557B3FA355}|AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj|solutionrelative:autobarato.comunicaciones.infrastructure\\dependencyinjection\\infrastructureservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D75C0C34-3D92-4745-BF6E-8799118A31FF}|AutoBarato.Comunicaciones.Domain\\AutoBarato.Comunicaciones.Domain.csproj|c:\\users\\rjbrizuelah\\documents\\github\\apicomunicaciones\\autobarato.comunicaciones.domain\\interfaces\\ichatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D75C0C34-3D92-4745-BF6E-8799118A31FF}|AutoBarato.Comunicaciones.Domain\\AutoBarato.Comunicaciones.Domain.csproj|solutionrelative:autobarato.comunicaciones.domain\\interfaces\\ichatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -94,56 +102,54 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "ConversacionesController.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\Controllers\\ConversacionesController.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\Controllers\\ConversacionesController.cs",
               "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Api\\Controllers\\ConversacionesController.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\Controllers\\ConversacionesController.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\Controllers\\ConversacionesController.cs",
               "RelativeToolTip": "AutoBarato.Comunicaciones.Api\\Controllers\\ConversacionesController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowEMAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAwE0AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T03:18:55.145Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 18,
               "Title": "IChatService.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\Interfaces\\IChatService.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Interfaces\\IChatService.cs",
               "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\Interfaces\\IChatService.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\Interfaces\\IChatService.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Interfaces\\IChatService.cs",
               "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\Interfaces\\IChatService.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAIA1wCEAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAASwCEAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T03:24:57.581Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "ChatService.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\Services\\ChatService.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Services\\ChatService.cs",
               "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\Services\\ChatService.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\Services\\ChatService.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Services\\ChatService.cs",
               "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\Services\\ChatService.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAQwD4AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAAwGoAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T03:25:26.046Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
               "Title": "IChatRepository.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Domain\\Interfaces\\IChatRepository.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Domain\\Interfaces\\IChatRepository.cs",
               "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Domain\\Interfaces\\IChatRepository.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Domain\\Interfaces\\IChatRepository.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Domain\\Interfaces\\IChatRepository.cs",
               "RelativeToolTip": "AutoBarato.Comunicaciones.Domain\\Interfaces\\IChatRepository.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAcwDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -152,153 +158,207 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "ChatRepository.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\Repositories\\ChatRepository.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\Repositories\\ChatRepository.cs",
               "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\Repositories\\ChatRepository.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\Repositories\\ChatRepository.cs*",
-              "RelativeToolTip": "AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\Repositories\\ChatRepository.cs*",
-              "ViewState": "AgIAAC0AAAAAAAAAAAA1wFgAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\Repositories\\ChatRepository.cs",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\Repositories\\ChatRepository.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAQwNoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T03:28:53.241Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CarChatHub.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\CarChatHub.cs",
-              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Api\\CarChatHub.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\CarChatHub.cs",
-              "RelativeToolTip": "AutoBarato.Comunicaciones.Api\\CarChatHub.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAADwvxoAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T03:41:40.74Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StoredProcedureExecutor.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\StoredProcedureExecutor.cs",
-              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\StoredProcedureExecutor.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\StoredProcedureExecutor.cs",
-              "RelativeToolTip": "AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\StoredProcedureExecutor.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAAwE0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:31:39.575Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ChatConversationDto.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\DTOs\\ChatConversationDto.cs",
-              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\DTOs\\ChatConversationDto.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\DTOs\\ChatConversationDto.cs",
-              "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\DTOs\\ChatConversationDto.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAgwBIAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T04:21:31.919Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ChatConversation.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Domain\\Entities\\ChatConversation.cs",
-              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Domain\\Entities\\ChatConversation.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Domain\\Entities\\ChatConversation.cs",
-              "RelativeToolTip": "AutoBarato.Comunicaciones.Domain\\Entities\\ChatConversation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T05:00:33.963Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ComunicacionesDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\ComunicacionesDbContext.cs",
-              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\ComunicacionesDbContext.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\ComunicacionesDbContext.cs",
-              "RelativeToolTip": "AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\ComunicacionesDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:51:48.178Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Utils.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\Utils\\Utils.cs",
-              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Api\\Utils\\Utils.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\Utils\\Utils.cs",
-              "RelativeToolTip": "AutoBarato.Comunicaciones.Api\\Utils\\Utils.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAwCcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T05:35:25.946Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\Program.cs",
               "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Api\\Program.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\Program.cs",
-              "RelativeToolTip": "AutoBarato.Comunicaciones.Api\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAARAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\Program.cs*",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Api\\Program.cs*",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAIwIoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T03:42:51.815Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AutoBarato.Comunicaciones.Api",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj",
-              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj",
-              "RelativeToolTip": "AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-17T06:04:26.999Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ChatMediaService.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\Services\\ChatMediaService.cs",
-              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\Services\\ChatMediaService.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\Services\\ChatMediaService.cs",
-              "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\Services\\ChatMediaService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAADwvzEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T05:53:10.968Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
               "Title": "ApplicationServices.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\DependencyInjection\\ApplicationServices.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\DependencyInjection\\ApplicationServices.cs",
               "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\DependencyInjection\\ApplicationServices.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\DependencyInjection\\ApplicationServices.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\DependencyInjection\\ApplicationServices.cs",
               "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\DependencyInjection\\ApplicationServices.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAA9wBcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T04:21:12.829Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Api\\appsettings.json",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\appsettings.json",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Api\\appsettings.json",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAQwCUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-17T00:03:02.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ChatMediaService.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Services\\ChatMediaService.cs",
+              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\Services\\ChatMediaService.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Services\\ChatMediaService.cs",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\Services\\ChatMediaService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAuwBMAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T05:53:10.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApiFilesService.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Services\\ApiFilesService.cs",
+              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\Services\\ApiFilesService.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Services\\ApiFilesService.cs",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\Services\\ApiFilesService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAQwB8AAABwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T00:11:56.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Mapping\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\Mapping\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Mapping\\MappingProfile.cs",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\Mapping\\MappingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T04:37:36.259Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ChatMessageDto.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\DTOs\\ChatMessageDto.cs",
+              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\DTOs\\ChatMessageDto.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\DTOs\\ChatMessageDto.cs",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\DTOs\\ChatMessageDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T04:49:16.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IApiFilesService.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Interfaces\\IApiFilesService.cs",
+              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\Interfaces\\IApiFilesService.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Interfaces\\IApiFilesService.cs",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\Interfaces\\IApiFilesService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T00:08:26.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CarChatHub.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\CarChatHub.cs",
+              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Api\\CarChatHub.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\CarChatHub.cs",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Api\\CarChatHub.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAwwFwAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T03:41:40.74Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AutoBarato.Comunicaciones.Api",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj",
+              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-25T17:27:17.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ChatConversationDto.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\DTOs\\ChatConversationDto.cs",
+              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\DTOs\\ChatConversationDto.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\DTOs\\ChatConversationDto.cs",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\DTOs\\ChatConversationDto.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA3wBIAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T04:21:31.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "StoredProcedureExecutor.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\StoredProcedureExecutor.cs",
+              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\StoredProcedureExecutor.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\StoredProcedureExecutor.cs",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\StoredProcedureExecutor.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAwE0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T17:31:39.575Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 15,
+              "Title": "ChatConversation.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Domain\\Entities\\ChatConversation.cs",
+              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Domain\\Entities\\ChatConversation.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Domain\\Entities\\ChatConversation.cs",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Domain\\Entities\\ChatConversation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T05:00:33.963Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ComunicacionesDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\ComunicacionesDbContext.cs",
+              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\ComunicacionesDbContext.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\ComunicacionesDbContext.cs",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Infrastructure\\DataAccess\\ComunicacionesDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:51:48.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Utils.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\Utils\\Utils.cs",
+              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Api\\Utils\\Utils.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\Utils\\Utils.cs",
+              "RelativeToolTip": "AutoBarato.Comunicaciones.Api\\Utils\\Utils.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAwCcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T05:35:25.946Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "IChatMediaService.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\Interfaces\\IChatMediaService.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Interfaces\\IChatMediaService.cs",
               "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\Interfaces\\IChatMediaService.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\Interfaces\\IChatMediaService.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\Interfaces\\IChatMediaService.cs",
               "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\Interfaces\\IChatMediaService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -306,11 +366,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "StrictExpiryOnlyMiddleware.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\Middleware\\StrictExpiryOnlyMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\Middleware\\StrictExpiryOnlyMiddleware.cs",
               "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Api\\Middleware\\StrictExpiryOnlyMiddleware.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\Middleware\\StrictExpiryOnlyMiddleware.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Api\\Middleware\\StrictExpiryOnlyMiddleware.cs",
               "RelativeToolTip": "AutoBarato.Comunicaciones.Api\\Middleware\\StrictExpiryOnlyMiddleware.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAWwBYAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -318,51 +378,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 21,
               "Title": "InfrastructureServices.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Infrastructure\\DependencyInjection\\InfrastructureServices.cs",
+              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Infrastructure\\DependencyInjection\\InfrastructureServices.cs",
               "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Infrastructure\\DependencyInjection\\InfrastructureServices.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Infrastructure\\DependencyInjection\\InfrastructureServices.cs",
+              "ToolTip": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Infrastructure\\DependencyInjection\\InfrastructureServices.cs",
               "RelativeToolTip": "AutoBarato.Comunicaciones.Infrastructure\\DependencyInjection\\InfrastructureServices.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAiwBsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T02:51:59.857Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\Mapping\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\Mapping\\MappingProfile.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\Mapping\\MappingProfile.cs",
-              "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\Mapping\\MappingProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T04:37:36.259Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Api\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Api\\Properties\\launchSettings.json",
-              "RelativeToolTip": "AutoBarato.Comunicaciones.Api\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-17T05:28:06.126Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "ChatMessageDto.cs",
-              "DocumentMoniker": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\DTOs\\ChatMessageDto.cs",
-              "RelativeDocumentMoniker": "AutoBarato.Comunicaciones.Application\\DTOs\\ChatMessageDto.cs",
-              "ToolTip": "C:\\Users\\rjbrizuelah\\source\\repos\\AutoBarato.Comunicaciones.Api\\AutoBarato.Comunicaciones.Application\\DTOs\\ChatMessageDto.cs",
-              "RelativeToolTip": "AutoBarato.Comunicaciones.Application\\DTOs\\ChatMessageDto.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T04:49:16.486Z"
             }
           ]
         }

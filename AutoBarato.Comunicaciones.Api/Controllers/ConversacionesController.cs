@@ -67,13 +67,14 @@ namespace AutoBarato.Comunicaciones.Api.Controllers
 
         [HttpPost("UploadMedia")]
         public async Task<ActionResult<object>> UploadMedia(
-             IFormFile file,
+            [FromForm] IFormFile file,
             [FromQuery] Guid? conversationId = null)
         {
             if (file == null || file.Length == 0)
                 return BadRequest("Archivo inválido.");
 
             var userId = GetUserId();
+
             var result = await _chatMediaService.UploadAsync(file, userId, conversationId);
 
             return Ok(new
