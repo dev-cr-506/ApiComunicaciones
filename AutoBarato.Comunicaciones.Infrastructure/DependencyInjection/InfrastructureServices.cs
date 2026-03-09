@@ -12,6 +12,7 @@ using AutoBarato.Comunicaciones.Infrastructure.DataAccess.Repositories;
 using AutoBarato.Comunicaciones.Infrastructure.Services;
 using AutoBarato.ServiciosAutomotrices.Infrastructure.Bitacora.Evento;
 using AutoBarato.ServiciosAutomotrices.Infrastructure.DataAccess.Repositories.Bitacora;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -50,7 +51,6 @@ namespace AutoBarato.Comunicaciones.Infrastructure.DependencyInjection
             services.AddHttpClient();
             services.AddScoped<IApiGatewayService, ApiGatewayService>();
             services.AddScoped<IContextoDeEjecucion, ContextoDeEjecucionHttp>();
-
 
             services.AddScoped<IServicioDeTransacciones, ServicioDeTransacciones>();
             services.AddScoped<EjecutorDeProcedimientosAlmacenados>();

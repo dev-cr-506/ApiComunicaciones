@@ -2,11 +2,11 @@
 using AutoBarato.Comunicaciones.Domain.Entities.Comunicaciones;
 using AutoMapper;
 
-namespace AutoBarato.Comunicaciones.Application.Mapping
+namespace AutoBarato.Comunicaciones.Application.Mapping.Comunicaciones
 {
-    public class ComunicacionesMappingProfile : Profile
+    public class ChatProfile : Profile
     {
-        public ComunicacionesMappingProfile()
+        public ChatProfile()
         {
             CreateMap<ChatConversacion, ChatConversacionResponse>();
             CreateMap<ChatMensaje, ChatMensajeResponse>();

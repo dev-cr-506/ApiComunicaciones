@@ -37,7 +37,7 @@ void ConfigureServices(WebApplicationBuilder builder)
     builder.Services.AddHttpClient();
     builder.Services.AddMemoryCache();
     builder.Services.AddSignalR();
-
+    builder.Services.AddHttpContextAccessor();
     // 🎨 AutoMapper con todos los perfiles del proyecto
     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

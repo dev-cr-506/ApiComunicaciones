@@ -10,8 +10,12 @@ namespace AutoBarato.Comunicaciones.Domain.Entities.Archivos
 {
     public class UploadFileRequest
     {
-        [FromForm] public IFormFile? File { get; set; }
-        [FromForm] public int IdTipoArchivo { get; set; } = 1;
+        public Func<Stream>? AbrirContenido { get; set; }
+        public string? NombreArchivo { get; set; }
+        public string? TipoContenido { get; set; }
+        public int IdTipoArchivo { get; set; }
+        public string? ObjectKey { get; set; }
+        public int? IdOrden { get; set; }
 
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AutoBarato.Comunicaciones.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+beaa43e5e0a869228b48f0d41559b657b208d93d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae5159bf94d46032151dfc4adfbcb40287dd712a")]
 [assembly: System.Reflection.AssemblyProductAttribute("AutoBarato.Comunicaciones.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AutoBarato.Comunicaciones.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

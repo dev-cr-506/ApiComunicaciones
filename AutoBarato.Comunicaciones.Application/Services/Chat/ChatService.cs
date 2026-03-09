@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoBarato.Comunicaciones.Application.DTOs.Response.Comunicaciones;
+﻿using AutoBarato.Comunicaciones.Application.DTOs.Response.Comunicaciones;
 using AutoBarato.Comunicaciones.Application.Interfaces;
 using AutoBarato.Comunicaciones.Domain.Interfaces.Chat;
 using AutoMapper;
 
-namespace AutoBarato.Comunicaciones.Application.Services
+namespace AutoBarato.Comunicaciones.Application.Services.Chat
 {
     public class ChatService : IChatService
     {

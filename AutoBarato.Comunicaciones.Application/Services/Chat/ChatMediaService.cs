@@ -1,29 +1,22 @@
-﻿using AutoBarato.Comunicaciones.Application.DTOs.Common;
+﻿using AutoBarato.Comunicaciones.Application.DTOs.Request.Archivos;
 using AutoBarato.Comunicaciones.Application.Interfaces;
 using AutoBarato.Comunicaciones.Domain.Configuration;
-using AutoBarato.Comunicaciones.Domain.Entities;
-using AutoBarato.Comunicaciones.Domain.Entities.Archivos;
-using AutoMapper;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AutoBarato.Comunicaciones.Application.Services
+namespace AutoBarato.Comunicaciones.Application.Services.Chat
 {
     public class ChatMediaService : IChatMediaService
     {
         private readonly ConfiguracionDeBucketsDeAlmacenamiento _laConfiguracionDeAlmacenamiento;
-        private readonly IApiFilesService _elServicioDeArchivosApi;
+        private readonly IApiGatewayService _elServicioDeApiGateway;
 
-        public ChatMediaService( IOptions<ConfiguracionDeBucketsDeAlmacenamiento> configuracionDeAlmacenamiento, IApiFilesService servicioDeArchivosApi)
+        public ChatMediaService(
+            IOptions<ConfiguracionDeBucketsDeAlmacenamiento> configuracionDeAlmacenamiento,
+            IApiGatewayService servicioDeArchivosApi)
         {
             _laConfiguracionDeAlmacenamiento = configuracionDeAlmacenamiento.Value;
-            _elServicioDeArchivosApi = servicioDeArchivosApi;
+            _elServicioDeApiGateway = servicioDeArchivosApi;
         }
 
         public async Task<ChatMediaResult> UploadAsync(
@@ -43,34 +36,38 @@ namespace AutoBarato.Comunicaciones.Application.Services
                 await archivo.CopyToAsync(elFlujoDeArchivo);
             }
 
-            List<(int IdTipoArchivo, string FileUrl)> losArchivosSubidos = new();
+            List<(int IdTipoArchivo, string FileUrl)> lasRespuestasDeArchivosSubidos = new();
             var laConfiguracionDelBucket = _laConfiguracionDeAlmacenamiento.Buckets[_laConfiguracionDeAlmacenamiento.DefaultBucket];
-            List<UploadFileRequest>? losArchivos = new List<UploadFileRequest>();
 
-            var elArchivoDeCarga = new UploadFileRequest
+            var losArchivosParaCargar = new List<UploadFileRequest>();
+
+            var laSolicitudDeArchivo = new UploadFileRequest
             {
-                File = archivo,
+                AbrirContenido = () => archivo.OpenReadStream(),
+                NombreArchivo = archivo.FileName,
+                TipoContenido = archivo.ContentType,
                 IdTipoArchivo = 1
             };
 
-            losArchivos!.Add(elArchivoDeCarga);
+            losArchivosParaCargar.Add(laSolicitudDeArchivo);
 
-            var laSolicitudDeCarga = new UploadMediaRequest
+            var laSolicitudDeCargaDeMedios = new UploadMediaRequest
             {
-                Files = losArchivos,
+                Files = losArchivosParaCargar,
                 DestinoFolderBucket = $"{laConfiguracionDelBucket.BasePath}/{laConfiguracionDelBucket.Folder}/{idConversacion}"
             };
 
-            var lasRespuestasDeArchivos = await _elServicioDeArchivosApi.ProcesarArchivosAutoConFailover(laSolicitudDeCarga);
 
-            if (lasRespuestasDeArchivos?.Any() == true)
+            var laRespuestaDeArchivos = await _elServicioDeApiGateway.ProcesarArchivosAutoConFailoverAsync(laSolicitudDeCargaDeMedios);
+
+            if (laRespuestaDeArchivos?.Any() == true)
             {
-                losArchivosSubidos = lasRespuestasDeArchivos
+                lasRespuestasDeArchivosSubidos = laRespuestaDeArchivos
                     .Select(archivoSubido => (IdTipoArchivo: archivoSubido.IdTipoArchivo, FileUrl: archivoSubido.FileUrl))
                     .ToList();
             }
 
-            var laUrlDelMedio = losArchivosSubidos.FirstOrDefault().FileUrl;
+            var laUrlDelMedio = lasRespuestasDeArchivosSubidos.FirstOrDefault().FileUrl;
 
             var elTipoDeMedio = archivo.ContentType.StartsWith("video", StringComparison.OrdinalIgnoreCase)
                 ? "VIDEO"
