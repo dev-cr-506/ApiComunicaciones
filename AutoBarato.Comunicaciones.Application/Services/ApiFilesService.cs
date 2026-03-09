@@ -1,7 +1,7 @@
-﻿using AutoBarato.Comunicaciones.Application.DTOs;
-using AutoBarato.Comunicaciones.Application.DTOs.Common;
+﻿using AutoBarato.Comunicaciones.Application.DTOs.Common;
+using AutoBarato.Comunicaciones.Application.DTOs.Response.Archivos;
 using AutoBarato.Comunicaciones.Application.Interfaces;
-using AutoBarato.Comunicaciones.Domain.Entities;
+using AutoBarato.Comunicaciones.Domain.Entities.Archivos;
 using AutoBarato.Comunicaciones.Domain.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -16,87 +16,81 @@ namespace AutoBarato.Comunicaciones.Application.Services
 {
     public class ApiFilesService : IApiFilesService
     {
+        private readonly IHttpClientFactory _laFabricaDeClientesHttp;
+        private readonly ILogger<ApiFilesService> _elRegistrador;
+        private readonly IConfiguration _laConfiguracion;
 
-        private readonly IHttpClientFactory _httpClientFactory;
-        private readonly ILogger<ApiFilesService> _logger;
-        private readonly IConfiguration _configuration;
-
-
-        public ApiFilesService(IHttpClientFactory httpClientFactory, ILogger<ApiFilesService> logger, IConfiguration configuration)
+        public ApiFilesService(IHttpClientFactory fabricaDeClientesHttp, ILogger<ApiFilesService> registrador, IConfiguration configuracion)
         {
-            _httpClientFactory = httpClientFactory;
-            _logger = logger;
-            _configuration = configuration;
+            _laFabricaDeClientesHttp = fabricaDeClientesHttp;
+            _elRegistrador = registrador;
+            _laConfiguracion = configuracion;
         }
 
-        public async Task<List<UploadFilesResponse>> ProcesarArchivosAutoConFailover(UploadMediaRequest request)
+        public async Task<List<UploadFilesResponse>> ProcesarArchivosAutoConFailover(UploadMediaRequest solicitudDeCargaDeMedios)
         {
-            var servers = _configuration.GetSection("ApiArchivos:Servers").Get<List<string>>();
-            Exception? lastException = null;
+            var losServidores = _laConfiguracion.GetSection("ApiArchivos:Servers").Get<List<string>>();
+            Exception? laUltimaExcepcion = null;
 
-            foreach (var serverUrl in servers)
+            foreach (var laUrlDelServidor in losServidores)
             {
                 try
                 {
-                    var client = _httpClientFactory.CreateClient();
-                    client.BaseAddress = new Uri(serverUrl);
+                    var elClienteHttp = _laFabricaDeClientesHttp.CreateClient();
+                    elClienteHttp.BaseAddress = new Uri(laUrlDelServidor);
 
-                    using var formData = new MultipartFormDataContent();
+                    using var losDatosDelFormulario = new MultipartFormDataContent();
 
-                    // Agregar el destino del folder
-                    formData.Add(new StringContent(request.DestinoFolderBucket), "DestinoFolderBucket");
+                    losDatosDelFormulario.Add(new StringContent(solicitudDeCargaDeMedios.DestinoFolderBucket), "DestinoFolderBucket");
 
-                    // Procesar cada archivo con su IdTipoArchivo correspondiente
-                    if (request.Files != null)
+                    if (solicitudDeCargaDeMedios.Files != null)
                     {
-                        for (int i = 0; i < request.Files.Count; i++)
+                        for (int indice = 0; indice < solicitudDeCargaDeMedios.Files.Count; indice++)
                         {
-                            var file = request.Files[i];
-                            using var stream = new MemoryStream();
-                            await file.File.CopyToAsync(stream);
-                            var fileContent = new ByteArrayContent(stream.ToArray());
+                            var elArchivo = solicitudDeCargaDeMedios.Files[indice];
+                            using var elFlujoDeArchivo = new MemoryStream();
+                            await elArchivo.File.CopyToAsync(elFlujoDeArchivo);
+                            var elContenidoDelArchivo = new ByteArrayContent(elFlujoDeArchivo.ToArray());
 
-                            // Agregar el archivo y el IdTipoArchivo
-                            formData.Add(fileContent, $"Files[{i}].File", file.File.FileName);
-                            formData.Add(new StringContent(file.IdTipoArchivo.ToString()), $"Files[{i}].IdTipoArchivo");
+                            losDatosDelFormulario.Add(elContenidoDelArchivo, $"Files[{indice}].File", elArchivo.File.FileName);
+                            losDatosDelFormulario.Add(new StringContent(elArchivo.IdTipoArchivo.ToString()), $"Files[{indice}].IdTipoArchivo");
                             //formData.Add(new StringContent(file.IdOrden.ToString()), $"Files[{i}].IdOrden");
                         }
                     }
 
-                    var response = await client.PostAsync("api/Files/uploadMedia", formData);
+                    var laRespuestaHttp = await elClienteHttp.PostAsync("api/Files/uploadMedia", losDatosDelFormulario);
 
-                    if (response.IsSuccessStatusCode)
+                    if (laRespuestaHttp.IsSuccessStatusCode)
                     {
-                        var apiResponse = await response.Content.ReadFromJsonAsync<Response<List<UploadFilesResponse>>>();
+                        var laRespuestaDeLaApi = await laRespuestaHttp.Content.ReadFromJsonAsync<Response<List<UploadFilesResponse>>>();
 
-
-                        if (apiResponse?.Success == true && apiResponse.Data != null)
+                        if (laRespuestaDeLaApi?.Success == true && laRespuestaDeLaApi.Data != null)
                         {
-                            var uploadResponses = apiResponse.Data;
-                            _logger.LogInformation("Archivos procesados exitosamente en servidor {ServerUrl}", serverUrl);
-                            return uploadResponses;
+                            var lasRespuestasDeCarga = laRespuestaDeLaApi.Data;
+                            _elRegistrador.LogInformation("Archivos procesados exitosamente en servidor {ServerUrl}", laUrlDelServidor);
+                            return lasRespuestasDeCarga;
                         }
 
-                        _logger.LogWarning("Respuesta exitosa pero con errores del servidor {ServerUrl}: {Message}",
-                            serverUrl, apiResponse?.Message ?? "Sin mensaje");
+                        _elRegistrador.LogWarning("Respuesta exitosa pero con errores del servidor {ServerUrl}: {Message}",
+                            laUrlDelServidor, laRespuestaDeLaApi?.Message ?? "Sin mensaje");
                     }
                     else
                     {
-                        var errorContent = await response.Content.ReadAsStringAsync();
-                        _logger.LogWarning("Error en la respuesta del servidor {ServerUrl}. StatusCode: {StatusCode}, Content: {Content}",
-                            serverUrl, response.StatusCode, errorContent);
+                        var elContenidoDeError = await laRespuestaHttp.Content.ReadAsStringAsync();
+                        _elRegistrador.LogWarning("Error en la respuesta del servidor {ServerUrl}. StatusCode: {StatusCode}, Content: {Content}",
+                            laUrlDelServidor, laRespuestaHttp.StatusCode, elContenidoDeError);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception laExcepcion)
                 {
-                    lastException = ex;
-                    _logger.LogWarning(ex, "Error al procesar archivos en servidor {ServerUrl}. Intentando siguiente servidor.", serverUrl);
+                    laUltimaExcepcion = laExcepcion;
+                    _elRegistrador.LogWarning(laExcepcion, "Error al procesar archivos en servidor {ServerUrl}. Intentando siguiente servidor.", laUrlDelServidor);
                     continue;
                 }
             }
 
-            _logger.LogError(lastException, "Todos los servidores de archivos fallaron al procesar los archivos");
-            throw new ServiceException("No se pudieron procesar los archivos en ningún servidor disponible", lastException);
+            _elRegistrador.LogError(laUltimaExcepcion, "Todos los servidores de archivos fallaron al procesar los archivos");
+            throw new ExcepcionDeServicio("No se pudieron procesar los archivos en ningún servidor disponible", laUltimaExcepcion);
         }
 
         public class FileUploadResult
@@ -106,6 +100,5 @@ namespace AutoBarato.Comunicaciones.Application.Services
             public string Message { get; set; } = string.Empty;
             public string ObjectKey { get; set; } = string.Empty;
         }
-
     }
 }

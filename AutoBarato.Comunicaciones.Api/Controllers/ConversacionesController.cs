@@ -1,4 +1,5 @@
-﻿using AutoBarato.Comunicaciones.Application.DTOs;
+﻿using AutoBarato.Comunicaciones.Api.Models.Request.Comunicaciones;
+using AutoBarato.Comunicaciones.Application.DTOs.Response.Comunicaciones;
 using AutoBarato.Comunicaciones.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,80 +9,76 @@ namespace AutoBarato.Comunicaciones.Api.Controllers
     [Route("api/[controller]")]
     public class ConversacionesController : ControllerBase
     {
-        private readonly IChatService _chatService;
-        private readonly IChatMediaService _chatMediaService;
+        private readonly IChatService _elServicioDeChat;
+        private readonly IChatMediaService _elServicioDeMediosDeChat;
 
-        public ConversacionesController(IChatService chatService, IChatMediaService chatMediaService)
+        public ConversacionesController(IChatService servicioDeChat, IChatMediaService servicioDeMediosDeChat)
         {
-            _chatService = chatService;
-            _chatMediaService = chatMediaService;
+            _elServicioDeChat = servicioDeChat;
+            _elServicioDeMediosDeChat = servicioDeMediosDeChat;
         }
 
-        // 👈 OJO: atributo totalmente calificado para evitar confusiones
         [Microsoft.AspNetCore.Mvc.NonAction]
-        protected int GetUserId()
+        protected int ObtenerIdUsuario()
         {
-            var usuarioClaim = User.FindFirst("IdUsuario")?.Value;
-            // Usa tu helper
+            var elIdUsuarioDelClaim = User.FindFirst("IdUsuario")?.Value;
             return Utils.Utils.ObtenerUsuarioDesdeToken(Request.Headers.Authorization);
         }
 
-        public class CreateConversationRequest
-        {
-            public int IdAuto { get; set; }
-            public int IdVendedor { get; set; }
-        }
+       
 
         [HttpPost("CreateOrGetConversation")]
-        public async Task<ActionResult<ChatConversationDto>> CreateOrGetConversation(
-            [FromBody] CreateConversationRequest request)
+        public async Task<ActionResult<ChatConversacionResponse>> CrearOObtenerConversacionAsync(
+            [FromBody] SolicitudDeCrearConversacion solicitudDeConversacion)
         {
-            var idComprador = GetUserId();
+            var elIdComprador = ObtenerIdUsuario();
 
-            var conv = await _chatService.CreateOrGetConversationAsync(
-                request.IdAuto, request.IdVendedor, idComprador);
+            var laConversacion = await _elServicioDeChat.CreateOrGetConversationAsync(
+                solicitudDeConversacion.IdAuto, solicitudDeConversacion.IdVendedor, elIdComprador);
 
-            return Ok(conv);
+            return Ok(laConversacion);
         }
 
         [HttpGet("GetMyConversations")]
-        public async Task<ActionResult<IEnumerable<ChatConversationDto>>> GetMyConversations(
-            [FromQuery] int skip = 0,
-            [FromQuery] int take = 20)
+        public async Task<ActionResult<IEnumerable<ChatConversacionResponse>>> ObtenerMisConversacionesAsync(
+            [FromQuery] int omitir = 0,
+            [FromQuery] int tomar = 20)
         {
-            var userId = GetUserId();
-            var conversations = await _chatService.GetUserConversationsAsync(userId, skip, take);
-            return Ok(conversations);
+            var elIdUsuario = ObtenerIdUsuario();
+            var lasConversaciones = await _elServicioDeChat.GetUserConversationsAsync(elIdUsuario, omitir, tomar);
+            return Ok(lasConversaciones);
         }
 
-        [HttpGet("GetMessages/{conversationId:guid}/messages")]
-        public async Task<ActionResult<IEnumerable<ChatMessageDto>>> GetMessages(
-            [FromRoute] Guid conversationId,
-            [FromQuery] int skip = 0,
-            [FromQuery] int take = 50)
+        [HttpGet("GetMessages/{idConversacion:guid}/messages")]
+        public async Task<ActionResult<IEnumerable<ChatMensajeResponse>>> ObtenerMensajesAsync(
+            [FromRoute] Guid idConversacion,
+            [FromQuery] int omitir = 0,
+            [FromQuery] int tomar = 50)
         {
-            var userId = GetUserId();
-            var messages = await _chatService.GetMessagesAsync(conversationId, skip, take);
-            return Ok(messages);
+            var elIdUsuario = ObtenerIdUsuario();
+            var losMensajes = await _elServicioDeChat.GetMessagesAsync(idConversacion, omitir, tomar);
+            return Ok(losMensajes);
         }
 
         [HttpPost("UploadMedia")]
-        public async Task<ActionResult<object>> UploadMedia(
-            [FromForm] IFormFile file,
-            [FromQuery] Guid? conversationId = null)
+        public async Task<ActionResult<object>> SubirMedioAsync(
+            IFormFile archivo,
+            [FromQuery] Guid? idConversacion = null)
         {
-            if (file == null || file.Length == 0)
+            if (archivo == null || archivo.Length == 0)
+            {
                 return BadRequest("Archivo inválido.");
+            }
 
-            var userId = GetUserId();
+            var elIdUsuario = ObtenerIdUsuario();
 
-            var result = await _chatMediaService.UploadAsync(file, userId, conversationId);
+            var elResultadoDeCarga = await _elServicioDeMediosDeChat.UploadAsync(archivo, elIdUsuario, idConversacion);
 
             return Ok(new
             {
-                mediaUrl = result.MediaUrl,
-                thumbnailUrl = result.ThumbnailUrl,
-                mediaType = result.MediaType
+                mediaUrl = elResultadoDeCarga.MediaUrl,
+                thumbnailUrl = elResultadoDeCarga.ThumbnailUrl,
+                mediaType = elResultadoDeCarga.MediaType
             });
         }
     }

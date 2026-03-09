@@ -1,5 +1,5 @@
-﻿using AutoBarato.Comunicaciones.Application.DTOs;
-using AutoBarato.Comunicaciones.Domain.Entities;
+﻿using AutoBarato.Comunicaciones.Application.DTOs.Response.Archivos;
+using AutoBarato.Comunicaciones.Domain.Entities.Archivos;
 using System;
 using System.Collections.Generic;
 using System.Linq;

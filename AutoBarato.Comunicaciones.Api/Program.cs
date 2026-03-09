@@ -1,10 +1,11 @@
-﻿using System.Reflection;
-using AutoBarato.Comunicaciones.Api;
+﻿using AutoBarato.Comunicaciones.Api;
 using AutoBarato.Comunicaciones.Application.DependencyInjection;
+using AutoBarato.Comunicaciones.Domain.Configuration;
 using AutoBarato.Comunicaciones.Infrastructure.DataAccess;
 using AutoBarato.Comunicaciones.Infrastructure.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,8 @@ void ConfigureServices(WebApplicationBuilder builder)
 {
     // 🔐 Configuración de la base de datos
     ConfigureDatabase(builder);
+    builder.Services.Configure<ConfiguracionDeBucketsDeAlmacenamiento>(builder.Configuration.GetSection("Storage"));
+
 
     // 📁 Configuración de capas (Infraestructura + Aplicación)
     builder.Services.AddInfrastructure(builder.Configuration);
@@ -52,8 +55,7 @@ void ConfigureDatabase(WebApplicationBuilder builder)
     if (string.IsNullOrWhiteSpace(connectionString))
         throw new Exception("⚠️ Error: No se encontró la cadena de conexión 'ConexionSql' en appsettings.json.");
 
-    builder.Services.AddDbContext<ComunicacionesDbContext>(options =>
-        options.UseSqlServer(connectionString));
+
 }
 
 void ConfigureApiServices(IServiceCollection services)

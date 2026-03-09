@@ -1,5 +1,5 @@
-﻿using AutoBarato.Comunicaciones.Domain.Entities;
-using  Microsoft.EntityFrameworkCore;
+﻿using AutoBarato.Comunicaciones.Domain.Entities.Comunicaciones;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace AutoBarato.Comunicaciones.Infrastructure.DataAccess
@@ -11,8 +11,8 @@ namespace AutoBarato.Comunicaciones.Infrastructure.DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<ChatConversation>().HasNoKey(); // Solo si es intencional
-            modelBuilder.Entity<ChatMessage>().HasNoKey(); // Solo si es intencional
+            modelBuilder.Entity<ChatConversacion>().HasNoKey(); // Solo si es intencional
+            modelBuilder.Entity<ChatMensaje>().HasNoKey(); // Solo si es intencional
 
             // 🔹 Aplica todas las configuraciones de entidades desde Infrastructure.Configurations
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ComunicacionesDbContext).Assembly);

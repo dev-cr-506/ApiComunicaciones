@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutoBarato.Comunicaciones.Application.DTOs;
+using AutoBarato.Comunicaciones.Application.DTOs.Response.Comunicaciones;
 using Microsoft.AspNetCore.Http;
 
 namespace AutoBarato.Comunicaciones.Application.Interfaces
 {
     public interface IChatService
     {
-        Task<ChatConversationDto> CreateOrGetConversationAsync(int idAuto, int idVendedor, int idComprador);
+        Task<ChatConversacionResponse> CreateOrGetConversationAsync(int idAuto, int idVendedor, int idComprador);
 
-        Task<IReadOnlyList<ChatConversationDto>> GetUserConversationsAsync(int idUsuario, int skip, int take);
+        Task<IReadOnlyList<ChatConversacionResponse>> GetUserConversationsAsync(int idUsuario, int skip, int take);
 
-        Task<ChatConversationDto?> GetConversationByIdAsync(Guid conversationId, int userId);
+        Task<ChatConversacionResponse?> GetConversationByIdAsync(Guid conversationId, int userId);
 
-        Task<IReadOnlyList<ChatMessageDto>> GetMessagesAsync(Guid conversationId, int skip, int take);
+        Task<IReadOnlyList<ChatMensajeResponse>> GetMessagesAsync(Guid conversationId, int skip, int take);
 
-        Task<ChatMessageDto> SaveMessageAsync(
+        Task<ChatMensajeResponse> SaveMessageAsync(
             Guid conversationId,
             int remitenteId,
             string? texto,
@@ -26,7 +26,7 @@ namespace AutoBarato.Comunicaciones.Application.Interfaces
             string? mediaUrl,
             string? mediaThumbnailUrl);
 
-        Task<ChatMessageDto?> EditMessageAsync(Guid messageId, int remitenteId, string newText);
+        Task<ChatMensajeResponse?> EditMessageAsync(Guid messageId, int remitenteId, string newText);
 
         Task MarkAsReadAsync(Guid conversationId, int userId, IEnumerable<Guid>? messageIds);
     }

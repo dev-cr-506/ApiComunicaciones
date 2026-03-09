@@ -3,152 +3,138 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutoBarato.Comunicaciones.Application.DTOs;
+using AutoBarato.Comunicaciones.Application.DTOs.Response.Comunicaciones;
 using AutoBarato.Comunicaciones.Application.Interfaces;
-using AutoBarato.Comunicaciones.Domain.Interfaces;
+using AutoBarato.Comunicaciones.Domain.Interfaces.Chat;
 using AutoMapper;
 
 namespace AutoBarato.Comunicaciones.Application.Services
 {
     public class ChatService : IChatService
     {
-        private readonly IChatRepository _chatRepository;
-        private readonly IMapper _mapper;
+        private readonly IChatRepository _elRepositorioDeChat;
+        private readonly IMapper _elMapeador;
 
-        public ChatService(IChatRepository chatRepository, IMapper mapper)
+        public ChatService(IChatRepository repositorioDeChat, IMapper mapeador)
         {
-            _chatRepository = chatRepository;
-            _mapper = mapper;
+            _elRepositorioDeChat = repositorioDeChat;
+            _elMapeador = mapeador;
         }
 
-        public async Task<ChatConversationDto> CreateOrGetConversationAsync(
+        public async Task<ChatConversacionResponse> CreateOrGetConversationAsync(
             int idAuto,
             int idVendedor,
             int idComprador)
         {
-            var conv = await _chatRepository.CreateOrGetConversationAsync(
+            var laConversacion = await _elRepositorioDeChat.CreateOrGetConversationAsync(
                 idAuto,
                 idVendedor,
                 idComprador);
 
-            if (conv == null)
+            if (laConversacion == null)
             {
                 throw new InvalidOperationException("No se pudo crear u obtener la conversación.");
             }
 
-            return _mapper.Map<ChatConversationDto>(conv);
-
+            return _elMapeador.Map<ChatConversacionResponse>(laConversacion);
         }
 
-        public async Task<IReadOnlyList<ChatConversationDto>> GetUserConversationsAsync(
+        public async Task<IReadOnlyList<ChatConversacionResponse>> GetUserConversationsAsync(
             int idUsuario,
             int skip,
             int take)
         {
-            var conversations = await _chatRepository.GetUserConversationsAsync(
+            var lasConversaciones = await _elRepositorioDeChat.GetUserConversationsAsync(
                 idUsuario,
                 skip,
                 take
             );
 
-            return _mapper.Map<List<ChatConversationDto>>(conversations);
-
+            return _elMapeador.Map<List<ChatConversacionResponse>>(lasConversaciones);
         }
 
-
-        public async Task<ChatConversationDto?> GetConversationByIdAsync(
-            Guid conversationId,
-            int userId)
+        public async Task<ChatConversacionResponse?> GetConversationByIdAsync(
+            Guid idConversacion,
+            int idUsuario)
         {
-            var conv = await _chatRepository.GetConversationByIdAsync(conversationId);
-            if (conv == null)
-                return null;
+            var laConversacion = await _elRepositorioDeChat.GetConversationByIdAsync(idConversacion);
 
-            // Regla de negocio: el usuario debe pertenecer a la conversación
-            if (conv.IdComprador != userId && conv.IdVendedor != userId)
+            if (laConversacion == null)
+            {
                 return null;
+            }
 
-            return _mapper.Map<ChatConversationDto>(conv);
+            if (laConversacion.IdComprador != idUsuario && laConversacion.IdVendedor != idUsuario)
+            {
+                return null;
+            }
+
+            return _elMapeador.Map<ChatConversacionResponse>(laConversacion);
         }
 
-        public async Task<IReadOnlyList<ChatMessageDto>> GetMessagesAsync(
-         Guid conversationId,
-         int skip,
-         int take)
+        public async Task<IReadOnlyList<ChatMensajeResponse>> GetMessagesAsync(
+            Guid idConversacion,
+            int skip,
+            int take)
         {
-            var messages = await _chatRepository.GetMessagesByConversationAsync(
-                conversationId,
+            var losMensajes = await _elRepositorioDeChat.GetMessagesByConversationAsync(
+                idConversacion,
                 skip,
                 take
             );
 
-            return _mapper.Map<List<ChatMessageDto>>(messages);
-
+            return _elMapeador.Map<List<ChatMensajeResponse>>(losMensajes);
         }
 
-        public async Task<ChatMessageDto> SaveMessageAsync(
-            Guid conversationId,
+        public async Task<ChatMensajeResponse> SaveMessageAsync(
+            Guid idConversacion,
             int remitenteId,
             string? texto,
             string tipoMensaje,
             string? mediaUrl,
             string? mediaThumbnailUrl)
         {
-            // Aquí puedes validar reglas de negocio extra:
-            // - TipoMensaje permitido
-            // - Largo máximo de texto
-            // - etc.
+            DateTime? laFechaDeExpiracionDelMedio = null;
 
-            DateTime? mediaExpiraEn = null;
-            // Si quisieras que la media expire en X días:
-            // if (!string.IsNullOrWhiteSpace(mediaUrl))
-            //     mediaExpiraEn = DateTime.UtcNow.AddDays(30);
-
-            var message = await _chatRepository.InsertMessageAsync(
-                conversationId,
+            var elMensaje = await _elRepositorioDeChat.InsertMessageAsync(
+                idConversacion,
                 remitenteId,
                 texto,
                 tipoMensaje,
                 mediaUrl,
                 mediaThumbnailUrl,
-                mediaExpiraEn);
+                laFechaDeExpiracionDelMedio);
 
-            return _mapper.Map<ChatMessageDto>(message);
+            return _elMapeador.Map<ChatMensajeResponse>(elMensaje);
         }
 
-        public async Task<ChatMessageDto?> EditMessageAsync(
-            Guid messageId,
+        public async Task<ChatMensajeResponse?> EditMessageAsync(
+            Guid idMensaje,
             int remitenteId,
-            string newText)
+            string textoNuevo)
         {
-            if (string.IsNullOrWhiteSpace(newText))
-                throw new ArgumentException("El texto editado no puede estar vacío.", nameof(newText));
+            if (string.IsNullOrWhiteSpace(textoNuevo))
+            {
+                throw new ArgumentException("El texto editado no puede estar vacío.", nameof(textoNuevo));
+            }
 
-            // Aquí podrías agregar lógica de ventana de tiempo para edición
-            // (ej: no permitir editar después de 15 minutos)
-
-            var updated = await _chatRepository.EditMessageAsync(
-                messageId,
+            var elMensajeActualizado = await _elRepositorioDeChat.EditMessageAsync(
+                idMensaje,
                 remitenteId,
-                newText);
+                textoNuevo);
 
-            return _mapper.Map<ChatMessageDto>(updated);
-
-
+            return _elMapeador.Map<ChatMensajeResponse>(elMensajeActualizado);
         }
 
         public async Task MarkAsReadAsync(
-            Guid conversationId,
-            int userId,
-            IEnumerable<Guid>? messageIds)
+            Guid idConversacion,
+            int idUsuario,
+            IEnumerable<Guid>? idsDeMensajes)
         {
-            // Por ahora el repositorio ignora messageIds y marca todos los de la conversación.
-            // Luego se puede extender a TVP.
-
-            await _chatRepository.MarkMessagesAsReadAsync(
-                conversationId,
-                userId,
-                messageIds);
+            await _elRepositorioDeChat.MarkMessagesAsReadAsync(
+                idConversacion,
+                idUsuario,
+                idsDeMensajes);
         }
     }
 }

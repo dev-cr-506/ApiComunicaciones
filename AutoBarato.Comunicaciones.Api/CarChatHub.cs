@@ -6,107 +6,120 @@ namespace AutoBarato.Comunicaciones.Api
 {
     public class CarChatHub : Hub
     {
-        private readonly IChatService _chatService;
+        private readonly IChatService _elServicioDeChat;
 
-        public CarChatHub(IChatService chatService)
+        public CarChatHub(IChatService servicioDeChat)
         {
-            _chatService = chatService;
+            _elServicioDeChat = servicioDeChat;
         }
-
 
         private int GetUserId2()
         {
-            var claim = Context.User?.FindFirst("id_usuario")
+            var elClaimDeUsuario = Context.User?.FindFirst("id_usuario")
                         ?? Context.User?.FindFirst("sub")
                         ?? throw new HubException("Claim id_usuario no encontrado.");
-            return int.Parse(claim.Value);
+
+            return int.Parse(elClaimDeUsuario.Value);
         }
 
         // Cliente: connection.invoke("JoinConversation", conversationId)
-        public async Task JoinConversation(string conversationId, int UserId)
+        public async Task JoinConversation(string idConversacion, int idUsuario)
         {
-            if (!Guid.TryParse(conversationId, out var conversationGuid))
+            if (!Guid.TryParse(idConversacion, out var elIdDeConversacion))
             {
-                throw new HubException($"Id de conversación inválido: {conversationId}");
+                throw new HubException($"Id de conversación inválido: {idConversacion}");
             }
 
-            var conv = await _chatService.GetConversationByIdAsync(conversationGuid, UserId);
-            if (conv == null)
-                throw new HubException("No tiene acceso a esta conversación.");
+            var laConversacion = await _elServicioDeChat.GetConversationByIdAsync(elIdDeConversacion, idUsuario);
 
-            await Groups.AddToGroupAsync(Context.ConnectionId, conversationId);
+            if (laConversacion == null)
+            {
+                throw new HubException("No tiene acceso a esta conversación.");
+            }
+
+            await Groups.AddToGroupAsync(Context.ConnectionId, idConversacion);
         }
 
         // Cliente: connection.invoke("LeaveConversation", joinedConversationId)
-        public async Task LeaveConversation(string conversationId)
+        public async Task LeaveConversation(string idConversacion)
         {
-            await Groups.RemoveFromGroupAsync(Context.ConnectionId, conversationId);
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, idConversacion);
         }
 
-        // Cliente: connection.invoke("SendMessage", dto)  ← NO lo toco, ya te funciona
-        public async Task SendMessage(SendChatMessageDto dto)
+        // Cliente: connection.invoke("SendMessage", dto)
+        public async Task SendMessage(SendChatMessageDto mensajeDto)
         {
-            var userId = dto.UserId;
+            var elIdUsuario = mensajeDto.UserId;
 
-            if (dto.TipoMensaje == "TEXT" && string.IsNullOrWhiteSpace(dto.Text))
+            if (mensajeDto.TipoMensaje == "TEXT" && string.IsNullOrWhiteSpace(mensajeDto.Text))
+            {
                 throw new HubException("Texto requerido para mensajes TEXT.");
+            }
 
-            if (dto.TipoMensaje != "TEXT" && string.IsNullOrWhiteSpace(dto.MediaUrl))
+            if (mensajeDto.TipoMensaje != "TEXT" && string.IsNullOrWhiteSpace(mensajeDto.MediaUrl))
+            {
                 throw new HubException("MediaUrl requerido para mensajes multimedia.");
+            }
 
-            var msg = await _chatService.SaveMessageAsync(
-                dto.ConversationId,
-                userId,
-                dto.Text,
-                dto.TipoMensaje,
-                dto.MediaUrl,
-                dto.MediaThumbnailUrl
+            var elMensaje = await _elServicioDeChat.SaveMessageAsync(
+                mensajeDto.ConversationId,
+                elIdUsuario,
+                mensajeDto.Text,
+                mensajeDto.TipoMensaje,
+                mensajeDto.MediaUrl,
+                mensajeDto.MediaThumbnailUrl
             );
 
-            await Clients.Group(dto.ConversationId.ToString())
-                .SendAsync("ReceiveMessage", msg);
+            await Clients.Group(mensajeDto.ConversationId.ToString())
+                .SendAsync("ReceiveMessage", elMensaje);
         }
 
         // Cliente: connection.invoke("EditMessage", dto)
-        public async Task EditMessage(EditChatMessageDto dto)
+        public async Task EditMessage(EditChatMessageDto edicionDto)
         {
-            var userId = dto.UserId;
+            var elIdUsuario = edicionDto.UserId;
 
-            var updated = await _chatService.EditMessageAsync(dto.MessageId, userId, dto.NewText);
-            if (updated == null)
+            var elMensajeActualizado = await _elServicioDeChat.EditMessageAsync(
+                edicionDto.MessageId,
+                elIdUsuario,
+                edicionDto.NewText
+            );
+
+            if (elMensajeActualizado == null)
+            {
                 throw new HubException("Mensaje no encontrado o no permitido.");
+            }
 
-            await Clients.Group(updated.ConversationId.ToString())
+            await Clients.Group(elMensajeActualizado.ConversationId.ToString())
                 .SendAsync("MessageEdited", new
                 {
-                    id = updated.Id,
-                    newText = updated.Texto,
-                    esEditado = updated.EsEditado,
-                    editedAt = updated.FechaEdicion
+                    id = elMensajeActualizado.Id,
+                    newText = elMensajeActualizado.Texto,
+                    esEditado = elMensajeActualizado.EsEditado,
+                    editedAt = elMensajeActualizado.FechaEdicion
                 });
         }
 
         // Cliente: connection.invoke("MarkRead", selectedId, null, UserId)
-        public async Task MarkRead(string conversationId, IEnumerable<Guid>? messageIds, int UserId)
+        public async Task MarkRead(string idConversacion, IEnumerable<Guid>? idsDeMensajes, int idUsuario)
         {
-            if (!Guid.TryParse(conversationId, out var conversationGuid))
+            if (!Guid.TryParse(idConversacion, out var elIdDeConversacion))
             {
-                throw new HubException($"Id de conversación inválido: {conversationId}");
+                throw new HubException($"Id de conversación inválido: {idConversacion}");
             }
 
-            await _chatService.MarkAsReadAsync(conversationGuid, UserId, messageIds);
+            await _elServicioDeChat.MarkAsReadAsync(elIdDeConversacion, idUsuario, idsDeMensajes);
 
-            await Clients.Group(conversationId)
+            await Clients.Group(idConversacion)
                 .SendAsync("MessagesRead", new
                 {
-                    conversationId = conversationGuid,
-                    UserId,
-                    messageIds
+                    conversationId = elIdDeConversacion,
+                    UserId = idUsuario,
+                    messageIds = idsDeMensajes
                 });
         }
     }
 }
-
 
 public class SendChatMessageDto
 {

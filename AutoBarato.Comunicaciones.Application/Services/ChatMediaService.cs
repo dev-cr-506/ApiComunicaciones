@@ -2,6 +2,7 @@
 using AutoBarato.Comunicaciones.Application.Interfaces;
 using AutoBarato.Comunicaciones.Domain.Configuration;
 using AutoBarato.Comunicaciones.Domain.Entities;
+using AutoBarato.Comunicaciones.Domain.Entities.Archivos;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,74 +17,71 @@ namespace AutoBarato.Comunicaciones.Application.Services
 {
     public class ChatMediaService : IChatMediaService
     {
-        private readonly JwtSettings _jwtSettings;
-        private readonly StorageSettings _storageSettings;
-        private readonly IApiFilesService _apiFilesService;
+        private readonly ConfiguracionDeBucketsDeAlmacenamiento _laConfiguracionDeAlmacenamiento;
+        private readonly IApiFilesService _elServicioDeArchivosApi;
 
-
-        public ChatMediaService(IOptions<JwtSettings> jwtSettings, IOptions<StorageSettings> storageSettings, IApiFilesService apiFilesService)
+        public ChatMediaService( IOptions<ConfiguracionDeBucketsDeAlmacenamiento> configuracionDeAlmacenamiento, IApiFilesService servicioDeArchivosApi)
         {
-            _jwtSettings = jwtSettings.Value;
-            _storageSettings = storageSettings.Value;
-            _apiFilesService = apiFilesService;
+            _laConfiguracionDeAlmacenamiento = configuracionDeAlmacenamiento.Value;
+            _elServicioDeArchivosApi = servicioDeArchivosApi;
         }
 
         public async Task<ChatMediaResult> UploadAsync(
-        IFormFile file,
-        int userId,
-        Guid? conversationId = null)
+            IFormFile archivo,
+            int idUsuario,
+            Guid? idConversacion = null)
         {
-            // ⚠️ Implementación de ejemplo mínima.
-            // Luego aquí metes tu lógica real (S3, Azure Blob, etc.)
+            var laRutaRaizDeCargas = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "chat-media");
+            Directory.CreateDirectory(laRutaRaizDeCargas);
 
-            // Guardar el archivo localmente, por ejemplo en wwwroot/chat-media
-            var uploadsRoot = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "chat-media");
-            Directory.CreateDirectory(uploadsRoot);
+            var laExtension = Path.GetExtension(archivo.FileName);
+            var elNombreDelArchivo = $"{Guid.NewGuid()}{laExtension}";
+            var laRutaCompleta = Path.Combine(laRutaRaizDeCargas, elNombreDelArchivo);
 
-            var extension = Path.GetExtension(file.FileName);
-            var fileName = $"{Guid.NewGuid()}{extension}";
-            var fullPath = Path.Combine(uploadsRoot, fileName);
-
-            using (var stream = new FileStream(fullPath, FileMode.Create))
+            using (var elFlujoDeArchivo = new FileStream(laRutaCompleta, FileMode.Create))
             {
-                await file.CopyToAsync(stream);
+                await archivo.CopyToAsync(elFlujoDeArchivo);
             }
 
-            List<(int IdTipoArchivo, string FileUrl)> archivosSubidos = new();
-            var bucketConfig = _storageSettings.Buckets[_storageSettings.DefaultBucket];
+            List<(int IdTipoArchivo, string FileUrl)> losArchivosSubidos = new();
+            var laConfiguracionDelBucket = _laConfiguracionDeAlmacenamiento.Buckets[_laConfiguracionDeAlmacenamiento.DefaultBucket];
+            List<UploadFileRequest>? losArchivos = new List<UploadFileRequest>();
 
-            var uploadRequest = new UploadMediaRequest
+            var elArchivoDeCarga = new UploadFileRequest
             {
-                Files = (List<UploadFileRequest>)file,
-                DestinoFolderBucket = $"{bucketConfig.BasePath}/{bucketConfig.Folder}/{conversationId}"
-
+                File = archivo,
+                IdTipoArchivo = 1
             };
 
-            var filesResponses = await _apiFilesService.ProcesarArchivosAutoConFailover(uploadRequest);
+            losArchivos!.Add(elArchivoDeCarga);
 
-            if (filesResponses?.Any() == true)
+            var laSolicitudDeCarga = new UploadMediaRequest
             {
-                archivosSubidos = filesResponses
-                    .Select(f => (IdTipoArchivo: f.IdTipoArchivo, FileUrl: f.FileUrl))
+                Files = losArchivos,
+                DestinoFolderBucket = $"{laConfiguracionDelBucket.BasePath}/{laConfiguracionDelBucket.Folder}/{idConversacion}"
+            };
+
+            var lasRespuestasDeArchivos = await _elServicioDeArchivosApi.ProcesarArchivosAutoConFailover(laSolicitudDeCarga);
+
+            if (lasRespuestasDeArchivos?.Any() == true)
+            {
+                losArchivosSubidos = lasRespuestasDeArchivos
+                    .Select(archivoSubido => (IdTipoArchivo: archivoSubido.IdTipoArchivo, FileUrl: archivoSubido.FileUrl))
                     .ToList();
             }
 
+            var laUrlDelMedio = losArchivosSubidos.FirstOrDefault().FileUrl;
 
-            // Construir una URL "pública" básica (ajusta según tu hosting/reverse proxy)
-            var mediaUrl = archivosSubidos.FirstOrDefault().FileUrl;
-
-            // Detección simplificada de tipo
-            var mediaType = file.ContentType.StartsWith("video", StringComparison.OrdinalIgnoreCase)
+            var elTipoDeMedio = archivo.ContentType.StartsWith("video", StringComparison.OrdinalIgnoreCase)
                 ? "VIDEO"
                 : "IMAGE";
 
-            // De momento no generamos thumbnail
-            string? thumbnailUrl = null;
+            string? laUrlDeMiniatura = null;
 
             return new ChatMediaResult(
-                mediaUrl,
-                thumbnailUrl,
-                mediaType
+                laUrlDelMedio,
+                laUrlDeMiniatura,
+                elTipoDeMedio
             );
         }
     }
