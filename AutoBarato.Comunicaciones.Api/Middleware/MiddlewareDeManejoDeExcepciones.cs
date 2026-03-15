@@ -37,7 +37,7 @@ namespace AutoBarato.Comunicaciones.Api.Middleware
             catch (Exception laExcepcionNoManejada)
             {
                 // 1) Siempre a ILogger
-                _elRegistrador.LogError(laExcepcionNoManejada, "Error no manejado en ServiciosAutomotrices API. TraceId={TraceId}", ObtenerTraceId(contextoHttp));
+                _elRegistrador.LogError(laExcepcionNoManejada, "Error no manejado en Comunicaciones API. TraceId={TraceId}", ObtenerTraceId(contextoHttp));
 
                 // 2) Encolar bitácora (NO await DB)
                 try
@@ -64,8 +64,8 @@ namespace AutoBarato.Comunicaciones.Api.Middleware
         private BitacoraDeError ConstruirErrorDeBitacora(HttpContext contextoHttp, Exception excepcion)
         {
             var elAmbiente = _laConfiguracion["ASPNETCORE_ENVIRONMENT"];
-            var elNombreDelServicio = "AutoBarato.ServiciosAutomotrices.Api";
-            var elCodigoDelModulo = "SERV_AUT";
+            var elNombreDelServicio = "AutoBarato.Comunicaciones.Api";
+            var elCodigoDelModulo = "COMUNIC";
 
             // OJO: algunos headers pueden venir gigantes
             var elAgenteDeUsuario = contextoHttp.Request?.Headers["User-Agent"].ToString();

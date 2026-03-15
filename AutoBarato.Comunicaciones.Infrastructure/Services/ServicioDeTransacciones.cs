@@ -1,47 +1,46 @@
 ﻿using AutoBarato.Comunicaciones.Infrastructure.DataAccess;
 using AutoBarato.Comunicaciones.Application.Interfaces;
-using AutoBarato.Comunicaciones.Infrastructure.DataAccess;
 
 namespace AutoBarato.Comunicaciones.Infrastructure.Services
 {
     public class ServicioDeTransacciones : IServicioDeTransacciones
     {
-        private readonly ComunicacionesDbContext _dbContext;
+        private readonly ComunicacionesDbContext _elContextoDeBaseDeDatos;
 
-        public ServicioDeTransacciones(ComunicacionesDbContext dbContext)
+        public ServicioDeTransacciones(ComunicacionesDbContext contextoDeBaseDeDatos)
         {
-            _dbContext = dbContext;
+            _elContextoDeBaseDeDatos = contextoDeBaseDeDatos;
         }
 
-        public async Task ExecuteInTransactionAsync(Func<Task> action)
+        public async Task EjecutarEnTransaccionAsync(Func<Task> accion)
         {
-            await using  var transaction = await _dbContext.Database.BeginTransactionAsync();
+            await using var laTransaccion = await _elContextoDeBaseDeDatos.Database.BeginTransactionAsync();
 
             try
             {
-                await action();
-                await transaction.CommitAsync();
+                await accion();
+                await laTransaccion.CommitAsync();
             }
             catch
             {
-                await transaction.RollbackAsync();
+                await laTransaccion.RollbackAsync();
                 throw;
             }
         }
 
-        public async Task<T> ExecuteInTransactionAsync<T>(Func<Task<T>> action)
+        public async Task<T> EjecutarEnTransaccionAsync<T>(Func<Task<T>> accion)
         {
-            await using  var transaction = await _dbContext.Database.BeginTransactionAsync();
+            await using var laTransaccion = await _elContextoDeBaseDeDatos.Database.BeginTransactionAsync();
 
             try
             {
-                var result = await action();
-                await transaction.CommitAsync();
-                return result;
+                var elResultado = await accion();
+                await laTransaccion.CommitAsync();
+                return elResultado;
             }
             catch
             {
-                await transaction.RollbackAsync();
+                await laTransaccion.RollbackAsync();
                 throw;
             }
         }

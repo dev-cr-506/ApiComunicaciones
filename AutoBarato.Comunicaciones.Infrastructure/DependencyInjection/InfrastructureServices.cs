@@ -1,7 +1,6 @@
 ﻿using AutoBarato.Comunicaciones.Application.Interfaces;
 using AutoBarato.Comunicaciones.Application.Interfaces.Bitacora;
 using AutoBarato.Comunicaciones.Application.Interfaces.Contexto;
-using AutoBarato.Comunicaciones.Application.Services;
 using AutoBarato.Comunicaciones.Domain.Interfaces.Bitacora;
 using AutoBarato.Comunicaciones.Domain.Interfaces.Chat;
 using AutoBarato.Comunicaciones.Infrastructure.Bitacora.Error;
@@ -10,78 +9,70 @@ using AutoBarato.Comunicaciones.Infrastructure.Contexto;
 using AutoBarato.Comunicaciones.Infrastructure.DataAccess;
 using AutoBarato.Comunicaciones.Infrastructure.DataAccess.Repositories;
 using AutoBarato.Comunicaciones.Infrastructure.Services;
-using AutoBarato.ServiciosAutomotrices.Infrastructure.Bitacora.Evento;
-using AutoBarato.ServiciosAutomotrices.Infrastructure.DataAccess.Repositories.Bitacora;
+using AutoBarato.Comunicaciones.Infrastructure.DataAccess.Repositories.Bitacora;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AutoBarato.Comunicaciones.Infrastructure.DependencyInjection
 {
     public static class InfrastructureServices
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddInfrastructure(this IServiceCollection servicios, IConfiguration configuracion)
         {
 
-            var connectionString = configuration.GetConnectionString("ConexionSql");
+            var connectionString = configuracion.GetConnectionString("ConexionSql");
 
             if (string.IsNullOrWhiteSpace(connectionString))
             {
                 throw new Exception("⚠️ Error: No se encontró la cadena de conexión en appsettings.json.");
             }
 
-            services.AddDbContext<ComunicacionesDbContext>(options => options.UseSqlServer(connectionString));
-
-
-            // 🔹 Registrar configuraciones desde appsettings.json
-            //services.Configure<ExternalServicesConfig>(configuration.GetSection("ExternalServices"));
-
-            // 🔹 Configurar HttpClients
-            ConfiguracionDeHttpClient.AddHttpClients(services, configuration);
-            services.AddScoped<IChatRepository, ChatRepository>();
-            services.AddScoped<IServicioDeTransacciones, ServicioDeTransacciones>();
-            services.AddScoped<EjecutorDeProcedimientosAlmacenados>();
-
-            services.AddHttpClient();
-            services.AddScoped<IApiGatewayService, ApiGatewayService>();
-            services.AddScoped<IContextoDeEjecucion, ContextoDeEjecucionHttp>();
-
-            services.AddScoped<IServicioDeTransacciones, ServicioDeTransacciones>();
-            services.AddScoped<EjecutorDeProcedimientosAlmacenados>();
+            servicios.AddDbContext<ComunicacionesDbContext>(opciones => opciones.UseSqlServer(connectionString));
 
 
 
-            services.Configure<BitacoraErrorOptions>(configuration.GetSection("Bitacora"));
+            ConfiguracionDeHttpClient.AddHttpClients(servicios, configuracion);
+            servicios.AddScoped<IChatRepository, ChatRepository>();
+            servicios.AddScoped<IServicioDeTransacciones, ServicioDeTransacciones>();
+            servicios.AddScoped<EjecutorDeProcedimientosAlmacenados>();
 
-            services.AddSingleton<BitacoraColaDeErrores>(sp =>
+            servicios.AddHttpClient();
+            servicios.AddScoped<IApiGatewayService, ApiGatewayService>();
+            servicios.AddScoped<IContextoDeEjecucion, ContextoDeEjecucionHttp>();
+
+            servicios.AddScoped<IServicioDeTransacciones, ServicioDeTransacciones>();
+            servicios.AddScoped<EjecutorDeProcedimientosAlmacenados>();
+
+
+
+            servicios.Configure<BitacoraErrorOptions>(configuracion.GetSection("Bitacora"));
+
+            servicios.AddSingleton<BitacoraColaDeErrores>(sp =>
             {
                 var opt = sp.GetRequiredService<IOptions<BitacoraErrorOptions>>().Value;
                 return new BitacoraColaDeErrores(opt.QueueCapacity);
             });
 
-            services.AddSingleton<IBitacoraErrorService, BitacoraErrorService>();
-            services.AddScoped<IBitacoraDeErrorRepository, BitacoraDeErrorRepository>();
-            services.AddHostedService<BitacoraErroresBackgroundService>();
+            servicios.AddSingleton<IBitacoraErrorService, BitacoraErrorService>();
+            servicios.AddScoped<IBitacoraDeErrorRepository, BitacoraDeErrorRepository>();
+            servicios.AddHostedService<BitacoraErroresBackgroundService>();
 
-            services.Configure<BitacoraEventosOptions>(configuration.GetSection("BitacoraEventos"));
+            servicios.Configure<BitacoraEventosOptions>(configuracion.GetSection("BitacoraEventos"));
 
-            services.AddSingleton<BitacoraColaDeEventos>(sp =>
+            servicios.AddSingleton<BitacoraColaDeEventos>(sp =>
             {
                 var opt = sp.GetRequiredService<IOptions<BitacoraEventosOptions>>().Value;
                 return new BitacoraColaDeEventos(opt.QueueCapacity);
             });
 
-            services.AddSingleton<IBitacoraEventosService, BitacoraEventosService>();
-            services.AddScoped<IBitacoraEventoRepository, BitacoraEventoRepository>();
-            services.AddHostedService<BitacoraEventosBackgroundService>();
+            servicios.AddSingleton<IBitacoraEventosService, BitacoraEventosService>();
+            servicios.AddScoped<IBitacoraEventoRepository, BitacoraEventoRepository>();
+            servicios.AddHostedService<BitacoraEventosBackgroundService>();
 
-            return services;
+            return servicios;
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using AutoBarato.Comunicaciones.Application.Interfaces.Bitacora;
 using AutoBarato.Comunicaciones.Domain.Entities.Bitacora;
-using AutoBarato.Comunicaciones.Infrastructure.Bitacora.Evento;
+
 using Microsoft.Extensions.Logging;
 
-namespace AutoBarato.ServiciosAutomotrices.Infrastructure.Bitacora.Evento
+namespace AutoBarato.Comunicaciones.Infrastructure.Bitacora.Evento
 {
     public sealed class BitacoraEventosService : IBitacoraEventosService
     {

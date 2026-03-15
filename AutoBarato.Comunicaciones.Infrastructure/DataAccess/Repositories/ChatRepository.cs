@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoBarato.Comunicaciones.Domain.Entities.Comunicaciones;
 using AutoBarato.Comunicaciones.Domain.Interfaces.Chat;
+using AutoBarato.Comunicaciones.Infrastructure.DataAccess.Helpers;
 using Microsoft.Data.SqlClient;
 
 namespace AutoBarato.Comunicaciones.Infrastructure.DataAccess.Repositories
@@ -17,78 +18,82 @@ namespace AutoBarato.Comunicaciones.Infrastructure.DataAccess.Repositories
             _elEjecutorDeProcedimientosAlmacenados = ejecutorDeProcedimientosAlmacenados;
         }
 
-        public async Task<ChatConversacion?> CreateOrGetConversationAsync(
+        public async Task<ChatConversacion?> CrearOObtenerConversacionesAsync(
             int idAuto,
             int idVendedor,
             int idComprador)
         {
             var losParametros = new[]
             {
-                new SqlParameter("@id_auto", SqlDbType.Int) { Value = idAuto },
-                new SqlParameter("@c_vendedor", SqlDbType.Int) { Value = idVendedor },
-                new SqlParameter("@c_comprador", SqlDbType.Int) { Value = idComprador }
+                HelperDeParametrosSql.CrearEntero("@id_auto", idAuto),
+                HelperDeParametrosSql.CrearEntero("@c_vendedor", idVendedor),
+                HelperDeParametrosSql.CrearEntero("@c_comprador", idComprador)
             };
 
-            var elResultado = await _elEjecutorDeProcedimientosAlmacenados.EjecutarProcedimientoAlmacenadoUnicoAsync<ChatConversacion>(
-                "comunicaciones.Crear_Obtener_Conversacion",
-                losParametros);
+            var laConversacion = await _elEjecutorDeProcedimientosAlmacenados
+                .EjecutarProcedimientoAlmacenadoUnicoAsync<ChatConversacion>(
+                    "comunicaciones.Crear_Obtener_Conversacion",
+                    losParametros);
 
-            return elResultado;
+            return laConversacion;
         }
 
-        public async Task<IReadOnlyList<ChatConversacion>> GetUserConversationsAsync(
+        public async Task<IReadOnlyList<ChatConversacion>> ObtenerConversacionesUsuarioAsync(
             int idUsuario,
             int skip,
             int take)
         {
             var losParametros = new[]
             {
-                new SqlParameter("@id_usuario", SqlDbType.Int) { Value = idUsuario },
-                new SqlParameter("@skip", SqlDbType.Int) { Value = skip },
-                new SqlParameter("@take", SqlDbType.Int) { Value = take }
+                HelperDeParametrosSql.CrearEntero("@id_usuario", idUsuario),
+                HelperDeParametrosSql.CrearEntero("@skip", skip),
+                HelperDeParametrosSql.CrearEntero("@take", take)
             };
 
-            var laListaDeResultados = await _elEjecutorDeProcedimientosAlmacenados.EjecutarProcedimientoAlmacenadoAsync<ChatConversacion>(
-                "comunicaciones.Consultar_Conversaciones_Usuario",
-                losParametros);
+            var lasConversaciones = await _elEjecutorDeProcedimientosAlmacenados
+                .EjecutarProcedimientoAlmacenadoAsync<ChatConversacion>(
+                    "comunicaciones.Consultar_Conversaciones_Usuario",
+                    losParametros);
 
-            return laListaDeResultados;
+            return lasConversaciones;
         }
 
-        public async Task<ChatConversacion?> GetConversationByIdAsync(Guid idConversacion)
+        public async Task<ChatConversacion?> ObtenerConversacionPorIdAsync(Guid idConversacion)
         {
             var losParametros = new[]
             {
-                new SqlParameter("@id_conversacion", SqlDbType.UniqueIdentifier) { Value = idConversacion }
+                HelperDeParametrosSql.CrearGuid("@id_conversacion", idConversacion)
             };
 
-            var elResultado = await _elEjecutorDeProcedimientosAlmacenados.EjecutarProcedimientoAlmacenadoUnicoAsync<ChatConversacion>(
-                "comunicaciones.Consultar_Conversacion_Id",
-                losParametros);
+            var laConversacion = await _elEjecutorDeProcedimientosAlmacenados
+                .EjecutarProcedimientoAlmacenadoUnicoAsync<ChatConversacion>(
+                    "comunicaciones.Consultar_Conversacion_Id",
+                    losParametros);
 
-            return elResultado;
+            return laConversacion;
         }
 
-        public async Task<IReadOnlyList<ChatMensaje>> GetMessagesByConversationAsync(
+        public async Task<IReadOnlyList<ChatMensaje>> ObtenerMensajesDeConversacionAsync(
             Guid idConversacion,
             int skip,
             int take)
         {
             var losParametros = new[]
             {
-                new SqlParameter("@id_conversacion", SqlDbType.UniqueIdentifier) { Value = idConversacion },
-                new SqlParameter("@skip", SqlDbType.Int) { Value = skip },
-                new SqlParameter("@take", SqlDbType.Int) { Value = take }
+                HelperDeParametrosSql.CrearGuid("@id_conversacion", idConversacion),
+                HelperDeParametrosSql.CrearEntero("@skip", skip),
+                HelperDeParametrosSql.CrearEntero("@take", take)
             };
 
-            var laListaDeResultados = await _elEjecutorDeProcedimientosAlmacenados.EjecutarProcedimientoAlmacenadoAsync<ChatMensaje>(
-                "comunicaciones.Listar_Mensajes_Conversacion_Paginado",
-                losParametros);
+            var losMensajes = await _elEjecutorDeProcedimientosAlmacenados
+                .EjecutarProcedimientoAlmacenadoAsync<ChatMensaje>(
+                    "comunicaciones.Listar_Mensajes_Conversacion_Paginado",
+                    losParametros);
 
-            return laListaDeResultados;
+            return losMensajes;
         }
 
-        public async Task<ChatMensaje> InsertMessageAsync(
+        public async Task<ChatMensaje> InsertarMensajeAsync(
             Guid idConversacion,
             int remitenteId,
             string? texto,
@@ -99,55 +104,57 @@ namespace AutoBarato.Comunicaciones.Infrastructure.DataAccess.Repositories
         {
             var losParametros = new[]
             {
-                new SqlParameter("@id_conversacion", SqlDbType.UniqueIdentifier) { Value = idConversacion },
-                new SqlParameter("@m_remitente", SqlDbType.Int) { Value = remitenteId },
-                new SqlParameter("@m_texto", SqlDbType.NVarChar, -1) { Value = (object?)texto ?? DBNull.Value },
-                new SqlParameter("@m_tipo_mensaje", SqlDbType.NVarChar, 50) { Value = tipoMensaje },
-                new SqlParameter("@m_media_url", SqlDbType.NVarChar, -1) { Value = (object?)mediaUrl ?? DBNull.Value },
-                new SqlParameter("@m_media_thumbnail_url", SqlDbType.NVarChar, -1) { Value = (object?)mediaThumbnailUrl ?? DBNull.Value },
-                new SqlParameter("@m_media_expira_en", SqlDbType.DateTime2) { Value = (object?)fechaDeExpiracionDelMedio ?? DBNull.Value }
+                HelperDeParametrosSql.CrearGuid("@id_conversacion", idConversacion),
+                HelperDeParametrosSql.CrearEntero("@m_remitente", remitenteId),
+                HelperDeParametrosSql.CrearNvarchar("@m_texto", texto),
+                HelperDeParametrosSql.CrearNvarchar("@m_tipo_mensaje", tipoMensaje, 50),
+                HelperDeParametrosSql.CrearNvarchar("@m_media_url", mediaUrl),
+                HelperDeParametrosSql.CrearNvarchar("@m_media_thumbnail_url", mediaThumbnailUrl),
+                HelperDeParametrosSql.CrearFechaHoraNula("@m_media_expira_en", fechaDeExpiracionDelMedio)
             };
 
-            var elResultado = await _elEjecutorDeProcedimientosAlmacenados.EjecutarProcedimientoAlmacenadoUnicoAsync<ChatMensaje>(
-                "comunicaciones.Insertar_Mensaje",
-                losParametros);
+            var elMensaje = await _elEjecutorDeProcedimientosAlmacenados
+                .EjecutarProcedimientoAlmacenadoUnicoAsync<ChatMensaje>(
+                    "comunicaciones.Insertar_Mensaje",
+                    losParametros);
 
-            return elResultado;
+            return elMensaje;
         }
 
-        public async Task<ChatMensaje?> EditMessageAsync(
+        public async Task<ChatMensaje?> EditarMensajeAsync(
             Guid idMensaje,
             int remitenteId,
             string textoNuevo)
         {
             var losParametros = new[]
             {
-                new SqlParameter("@id_mensaje", SqlDbType.UniqueIdentifier) { Value = idMensaje },
-                new SqlParameter("@m_remitente", SqlDbType.Int) { Value = remitenteId },
-                new SqlParameter("@nuevo_texto", SqlDbType.NVarChar, 1000) { Value = (object)textoNuevo ?? DBNull.Value }
+                HelperDeParametrosSql.CrearGuid("@id_mensaje", idMensaje),
+                HelperDeParametrosSql.CrearEntero("@m_remitente", remitenteId),
+                HelperDeParametrosSql.CrearNvarchar("@nuevo_texto", textoNuevo, 1000)
             };
 
-            var elResultado = await _elEjecutorDeProcedimientosAlmacenados.EjecutarProcedimientoAlmacenadoUnicoAsync<ChatMensaje>(
-                "comunicaciones.Editar_Mensaje",
-                losParametros);
+            var elMensaje = await _elEjecutorDeProcedimientosAlmacenados
+                .EjecutarProcedimientoAlmacenadoUnicoAsync<ChatMensaje>(
+                    "comunicaciones.Editar_Mensaje",
+                    losParametros);
 
-            return elResultado;
+            return elMensaje;
         }
 
-        public async Task MarkMessagesAsReadAsync(
+        public async Task MarcarMensajeComoLeidoAsync(
             Guid idConversacion,
-            int idUsuario,
-            IEnumerable<Guid>? idsDeMensajes)
+            int idUsuario)
         {
-            var losParametros = new[]
+            var losParametros = new SqlParameter[]
             {
-                new SqlParameter("@id_conversacion", SqlDbType.UniqueIdentifier) { Value = idConversacion },
-                new SqlParameter("@id_usuario", SqlDbType.Int) { Value = idUsuario }
+        HelperDeParametrosSql.CrearGuid("@id_conversacion", idConversacion),
+        HelperDeParametrosSql.CrearEntero("@id_usuario", idUsuario)
             };
 
-            await _elEjecutorDeProcedimientosAlmacenados.EjecutarProcedimientoAlmacenadoSinResultadoAsync(
-                "comunicaciones.Marcar_Mensajes_Leidos",
-                losParametros);
+            await _elEjecutorDeProcedimientosAlmacenados
+                .EjecutarProcedimientoAlmacenadoSinResultadoAsync(
+                    "comunicaciones.Marcar_Mensajes_Leidos",
+                    losParametros);
         }
     }
 }

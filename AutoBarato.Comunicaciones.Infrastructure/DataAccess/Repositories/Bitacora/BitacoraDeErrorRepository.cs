@@ -1,9 +1,9 @@
 ﻿using AutoBarato.Comunicaciones.Domain.Entities.Bitacora;
 using AutoBarato.Comunicaciones.Domain.Interfaces.Bitacora;
-using AutoBarato.Comunicaciones.Infrastructure.DataAccess;
+
 using Microsoft.Data.SqlClient;
 
-namespace AutoBarato.ServiciosAutomotrices.Infrastructure.DataAccess.Repositories.Bitacora
+namespace AutoBarato.Comunicaciones.Infrastructure.DataAccess.Repositories.Bitacora
 {
     public sealed class BitacoraDeErrorRepository : IBitacoraDeErrorRepository
     {

@@ -1,7 +1,10 @@
-﻿using AutoBarato.Comunicaciones.Api.Models.Request.Comunicaciones;
+﻿using AutoBarato.Comunicaciones.Api.Extensions;
+using AutoBarato.Comunicaciones.Api.Models.Common;
 using AutoBarato.Comunicaciones.Application.DTOs.Response.Comunicaciones;
 using AutoBarato.Comunicaciones.Application.Interfaces;
+using AutoBarato.Comunicaciones.Application.Models.Request.Comunicaciones;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace AutoBarato.Comunicaciones.Api.Controllers
 {
@@ -22,46 +25,60 @@ namespace AutoBarato.Comunicaciones.Api.Controllers
         protected int ObtenerIdUsuario()
         {
             var elIdUsuarioDelClaim = User.FindFirst("IdUsuario")?.Value;
-            return Utils.Utils.ObtenerUsuarioDesdeToken(Request.Headers.Authorization);
+            return 1;
         }
 
        
 
         [HttpPost("CreateOrGetConversation")]
-        public async Task<ActionResult<ChatConversacionResponse>> CrearOObtenerConversacionAsync(
-            [FromBody] SolicitudDeCrearConversacion solicitudDeConversacion)
+        public async Task<ActionResult<ChatConversacionResponse>> CrearOObtenerConversacion(
+            [FromBody] SolicitudDeCrearConversacionRequest solicitudDeConversacion)
         {
-            var elIdComprador = ObtenerIdUsuario();
+            //var elIdComprador = ObtenerIdUsuario();
 
-            var laConversacion = await _elServicioDeChat.CreateOrGetConversationAsync(
-                solicitudDeConversacion.IdAuto, solicitudDeConversacion.IdVendedor, elIdComprador);
+            var idUsuarioAutenticado = User.ObtenerIdDeUsuarioAutenticado();
+
+            if (idUsuarioAutenticado <= 0)
+            {
+                return Unauthorized(Response<ChatConversacionResponse?>.ErrorResponse(
+                    HttpStatusCode.Unauthorized,
+                    "No se pudo obtener el usuario autenticado.",
+                    new List<ErrorResponse>
+                    {
+                        new ErrorResponse { ErrorCode = 401, Message = "Usuario inválido en el token." }
+                    }
+                ));
+            }
+
+            var laConversacion = await _elServicioDeChat.CrearOObtenerConversacionAsync(
+                solicitudDeConversacion.IdAuto, solicitudDeConversacion.IdVendedor, idUsuarioAutenticado);
 
             return Ok(laConversacion);
         }
 
         [HttpGet("GetMyConversations")]
-        public async Task<ActionResult<IEnumerable<ChatConversacionResponse>>> ObtenerMisConversacionesAsync(
+        public async Task<ActionResult<IEnumerable<ChatConversacionResponse>>> ObtenerMisConversaciones(
             [FromQuery] int omitir = 0,
             [FromQuery] int tomar = 20)
         {
             var elIdUsuario = ObtenerIdUsuario();
-            var lasConversaciones = await _elServicioDeChat.GetUserConversationsAsync(elIdUsuario, omitir, tomar);
+            var lasConversaciones = await _elServicioDeChat.ObtenerMisConversacionesAsync(elIdUsuario, omitir, tomar);
             return Ok(lasConversaciones);
         }
 
         [HttpGet("GetMessages/{idConversacion:guid}/messages")]
-        public async Task<ActionResult<IEnumerable<ChatMensajeResponse>>> ObtenerMensajesAsync(
+        public async Task<ActionResult<IEnumerable<ChatMensajeResponse>>> ObtenerMensajes(
             [FromRoute] Guid idConversacion,
             [FromQuery] int omitir = 0,
             [FromQuery] int tomar = 50)
         {
             var elIdUsuario = ObtenerIdUsuario();
-            var losMensajes = await _elServicioDeChat.GetMessagesAsync(idConversacion, omitir, tomar);
+            var losMensajes = await _elServicioDeChat.ObtenerMensajesAsync(idConversacion, omitir, tomar);
             return Ok(losMensajes);
         }
 
         [HttpPost("UploadMedia")]
-        public async Task<ActionResult<object>> SubirMedioAsync(
+        public async Task<ActionResult<object>> SubirMedio(
             IFormFile archivo,
             [FromQuery] Guid? idConversacion = null)
         {
@@ -72,7 +89,7 @@ namespace AutoBarato.Comunicaciones.Api.Controllers
 
             var elIdUsuario = ObtenerIdUsuario();
 
-            var elResultadoDeCarga = await _elServicioDeMediosDeChat.UploadAsync(archivo, elIdUsuario, idConversacion);
+            var elResultadoDeCarga = await _elServicioDeMediosDeChat.SubirMedioAsync(archivo, elIdUsuario, idConversacion);
 
             return Ok(new
             {

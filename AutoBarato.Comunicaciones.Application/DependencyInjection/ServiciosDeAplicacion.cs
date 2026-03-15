@@ -7,15 +7,12 @@ namespace AutoBarato.Comunicaciones.Application.DependencyInjection
 {
     public static class ServiciosDeAplicacion
     {
-        public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddApplicationServices(this IServiceCollection servicios, IConfiguration configuracion)
         {
-            // Registrar AutoMapper
+            servicios.AddScoped<IChatService, ChatService>();
+            servicios.AddScoped<IChatMediaService, ChatMediaService>();
 
-            // Registrar servicios de repositorio
-            services.AddScoped<IChatService, ChatService>();
-            services.AddScoped<IChatMediaService, ChatMediaService>();
-
-            return services;
+            return servicios;
         }
     }
 

@@ -1,4 +1,5 @@
 ﻿using AutoBarato.Comunicaciones.Application.DTOs.Request.Archivos;
+using AutoBarato.Comunicaciones.Application.DTOs.Response.Comunicaciones;
 using AutoBarato.Comunicaciones.Application.Interfaces;
 using AutoBarato.Comunicaciones.Domain.Configuration;
 using Microsoft.AspNetCore.Http;
@@ -11,30 +12,16 @@ namespace AutoBarato.Comunicaciones.Application.Services.Chat
         private readonly ConfiguracionDeBucketsDeAlmacenamiento _laConfiguracionDeAlmacenamiento;
         private readonly IApiGatewayService _elServicioDeApiGateway;
 
-        public ChatMediaService(
-            IOptions<ConfiguracionDeBucketsDeAlmacenamiento> configuracionDeAlmacenamiento,
-            IApiGatewayService servicioDeArchivosApi)
+        public ChatMediaService(  IOptions<ConfiguracionDeBucketsDeAlmacenamiento> configuracionDeAlmacenamiento, IApiGatewayService servicioDeArchivosApi)
         {
             _laConfiguracionDeAlmacenamiento = configuracionDeAlmacenamiento.Value;
             _elServicioDeApiGateway = servicioDeArchivosApi;
         }
 
-        public async Task<ChatMediaResult> UploadAsync(
-            IFormFile archivo,
-            int idUsuario,
-            Guid? idConversacion = null)
+        public async Task<ChatMediaResponse> SubirMedioAsync(   IFormFile archivo,   int idUsuario, Guid? idConversacion = null)
         {
-            var laRutaRaizDeCargas = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "chat-media");
-            Directory.CreateDirectory(laRutaRaizDeCargas);
 
-            var laExtension = Path.GetExtension(archivo.FileName);
-            var elNombreDelArchivo = $"{Guid.NewGuid()}{laExtension}";
-            var laRutaCompleta = Path.Combine(laRutaRaizDeCargas, elNombreDelArchivo);
 
-            using (var elFlujoDeArchivo = new FileStream(laRutaCompleta, FileMode.Create))
-            {
-                await archivo.CopyToAsync(elFlujoDeArchivo);
-            }
 
             List<(int IdTipoArchivo, string FileUrl)> lasRespuestasDeArchivosSubidos = new();
             var laConfiguracionDelBucket = _laConfiguracionDeAlmacenamiento.Buckets[_laConfiguracionDeAlmacenamiento.DefaultBucket];
@@ -75,7 +62,7 @@ namespace AutoBarato.Comunicaciones.Application.Services.Chat
 
             string? laUrlDeMiniatura = null;
 
-            return new ChatMediaResult(
+            return new ChatMediaResponse(
                 laUrlDelMedio,
                 laUrlDeMiniatura,
                 elTipoDeMedio

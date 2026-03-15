@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BL/pawDAHTs=",
+  "dgSpecHash": "/Aw4E91s57Q=",
   "success": true,
   "projectFilePath": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Application\\AutoBarato.Comunicaciones.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rjbrizuelah\\.nuget\\packages\\automapper\\16.1.0\\automapper.16.1.0.nupkg.sha512",
-    "C:\\Users\\rjbrizuelah\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\rjbrizuelah\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.3.0\\microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
     "C:\\Users\\rjbrizuelah\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.3.0\\microsoft.aspnetcore.authentication.core.2.3.0.nupkg.sha512",
     "C:\\Users\\rjbrizuelah\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.3.0\\microsoft.aspnetcore.authorization.2.3.0.nupkg.sha512",

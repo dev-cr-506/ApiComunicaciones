@@ -63,7 +63,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.6.2, )"
+              "version": "[10.1.5, )"
             }
           },
           "imports": [
@@ -556,10 +556,6 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[16.1.0, )"
-            },
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[12.0.0, )"
             }
           },
           "imports": [

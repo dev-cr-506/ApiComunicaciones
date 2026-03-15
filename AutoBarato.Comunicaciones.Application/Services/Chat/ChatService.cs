@@ -16,12 +16,12 @@ namespace AutoBarato.Comunicaciones.Application.Services.Chat
             _elMapeador = mapeador;
         }
 
-        public async Task<ChatConversacionResponse> CreateOrGetConversationAsync(
+        public async Task<ChatConversacionResponse> CrearOObtenerConversacionAsync(
             int idAuto,
             int idVendedor,
             int idComprador)
         {
-            var laConversacion = await _elRepositorioDeChat.CreateOrGetConversationAsync(
+            var laConversacion = await _elRepositorioDeChat.CrearOObtenerConversacionesAsync(
                 idAuto,
                 idVendedor,
                 idComprador);
@@ -34,12 +34,12 @@ namespace AutoBarato.Comunicaciones.Application.Services.Chat
             return _elMapeador.Map<ChatConversacionResponse>(laConversacion);
         }
 
-        public async Task<IReadOnlyList<ChatConversacionResponse>> GetUserConversationsAsync(
+        public async Task<IReadOnlyList<ChatConversacionResponse>> ObtenerMisConversacionesAsync(
             int idUsuario,
             int skip,
             int take)
         {
-            var lasConversaciones = await _elRepositorioDeChat.GetUserConversationsAsync(
+            var lasConversaciones = await _elRepositorioDeChat.ObtenerConversacionesUsuarioAsync(
                 idUsuario,
                 skip,
                 take
@@ -48,11 +48,11 @@ namespace AutoBarato.Comunicaciones.Application.Services.Chat
             return _elMapeador.Map<List<ChatConversacionResponse>>(lasConversaciones);
         }
 
-        public async Task<ChatConversacionResponse?> GetConversationByIdAsync(
+        public async Task<ChatConversacionResponse?> ObtenerConversacionPorIdAsync(
             Guid idConversacion,
             int idUsuario)
         {
-            var laConversacion = await _elRepositorioDeChat.GetConversationByIdAsync(idConversacion);
+            var laConversacion = await _elRepositorioDeChat.ObtenerConversacionPorIdAsync(idConversacion);
 
             if (laConversacion == null)
             {
@@ -67,12 +67,12 @@ namespace AutoBarato.Comunicaciones.Application.Services.Chat
             return _elMapeador.Map<ChatConversacionResponse>(laConversacion);
         }
 
-        public async Task<IReadOnlyList<ChatMensajeResponse>> GetMessagesAsync(
+        public async Task<IReadOnlyList<ChatMensajeResponse>> ObtenerMensajesAsync(
             Guid idConversacion,
             int skip,
             int take)
         {
-            var losMensajes = await _elRepositorioDeChat.GetMessagesByConversationAsync(
+            var losMensajes = await _elRepositorioDeChat.ObtenerMensajesDeConversacionAsync(
                 idConversacion,
                 skip,
                 take
@@ -81,7 +81,7 @@ namespace AutoBarato.Comunicaciones.Application.Services.Chat
             return _elMapeador.Map<List<ChatMensajeResponse>>(losMensajes);
         }
 
-        public async Task<ChatMensajeResponse> SaveMessageAsync(
+        public async Task<ChatMensajeResponse> GuardarMensajeAsync(
             Guid idConversacion,
             int remitenteId,
             string? texto,
@@ -91,7 +91,7 @@ namespace AutoBarato.Comunicaciones.Application.Services.Chat
         {
             DateTime? laFechaDeExpiracionDelMedio = null;
 
-            var elMensaje = await _elRepositorioDeChat.InsertMessageAsync(
+            var elMensaje = await _elRepositorioDeChat.InsertarMensajeAsync(
                 idConversacion,
                 remitenteId,
                 texto,
@@ -103,7 +103,7 @@ namespace AutoBarato.Comunicaciones.Application.Services.Chat
             return _elMapeador.Map<ChatMensajeResponse>(elMensaje);
         }
 
-        public async Task<ChatMensajeResponse?> EditMessageAsync(
+        public async Task<ChatMensajeResponse?> EditarMensajeAsync(
             Guid idMensaje,
             int remitenteId,
             string textoNuevo)
@@ -113,7 +113,7 @@ namespace AutoBarato.Comunicaciones.Application.Services.Chat
                 throw new ArgumentException("El texto editado no puede estar vacío.", nameof(textoNuevo));
             }
 
-            var elMensajeActualizado = await _elRepositorioDeChat.EditMessageAsync(
+            var elMensajeActualizado = await _elRepositorioDeChat.EditarMensajeAsync(
                 idMensaje,
                 remitenteId,
                 textoNuevo);
@@ -121,12 +121,12 @@ namespace AutoBarato.Comunicaciones.Application.Services.Chat
             return _elMapeador.Map<ChatMensajeResponse>(elMensajeActualizado);
         }
 
-        public async Task MarkAsReadAsync(
+        public async Task MarcarComoLeidoAsync(
             Guid idConversacion,
             int idUsuario,
             IEnumerable<Guid>? idsDeMensajes)
         {
-            await _elRepositorioDeChat.MarkMessagesAsReadAsync(
+            await _elRepositorioDeChat.MarcarMensajeComoLeidoAsync(
                 idConversacion,
                 idUsuario,
                 idsDeMensajes);

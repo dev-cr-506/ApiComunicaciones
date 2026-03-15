@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using AutoBarato.Comunicaciones.Application.DTOs.Response.Comunicaciones;
 using Microsoft.AspNetCore.Http;
 
 namespace AutoBarato.Comunicaciones.Application.Interfaces
 {
     public interface IChatMediaService
     {
-        Task<ChatMediaResult> UploadAsync(
-          IFormFile file,
-          int userId,
-          Guid? conversationId = null);
+        Task<ChatMediaResponse> SubirMedioAsync( IFormFile archivo,  int idUsuario, Guid? idConversacion = null);
     }
 }

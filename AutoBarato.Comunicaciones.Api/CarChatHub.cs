@@ -30,7 +30,7 @@ namespace AutoBarato.Comunicaciones.Api
                 throw new HubException($"Id de conversación inválido: {idConversacion}");
             }
 
-            var laConversacion = await _elServicioDeChat.GetConversationByIdAsync(elIdDeConversacion, idUsuario);
+            var laConversacion = await _elServicioDeChat.ObtenerConversacionPorIdAsync(elIdDeConversacion, idUsuario);
 
             if (laConversacion == null)
             {
@@ -61,7 +61,7 @@ namespace AutoBarato.Comunicaciones.Api
                 throw new HubException("MediaUrl requerido para mensajes multimedia.");
             }
 
-            var elMensaje = await _elServicioDeChat.SaveMessageAsync(
+            var elMensaje = await _elServicioDeChat.GuardarMensajeAsync(
                 mensajeDto.ConversationId,
                 elIdUsuario,
                 mensajeDto.Text,
@@ -79,7 +79,7 @@ namespace AutoBarato.Comunicaciones.Api
         {
             var elIdUsuario = edicionDto.UserId;
 
-            var elMensajeActualizado = await _elServicioDeChat.EditMessageAsync(
+            var elMensajeActualizado = await _elServicioDeChat.EditarMensajeAsync(
                 edicionDto.MessageId,
                 elIdUsuario,
                 edicionDto.NewText
@@ -108,7 +108,7 @@ namespace AutoBarato.Comunicaciones.Api
                 throw new HubException($"Id de conversación inválido: {idConversacion}");
             }
 
-            await _elServicioDeChat.MarkAsReadAsync(elIdDeConversacion, idUsuario, idsDeMensajes);
+            await _elServicioDeChat.MarcarComoLeidoAsync(elIdDeConversacion, idUsuario, idsDeMensajes);
 
             await Clients.Group(idConversacion)
                 .SendAsync("MessagesRead", new

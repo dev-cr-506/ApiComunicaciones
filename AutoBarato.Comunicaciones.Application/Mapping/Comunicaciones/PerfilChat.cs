@@ -4,9 +4,9 @@ using AutoMapper;
 
 namespace AutoBarato.Comunicaciones.Application.Mapping.Comunicaciones
 {
-    public class ChatProfile : Profile
+    public class PerfilChat : Profile
     {
-        public ChatProfile()
+        public PerfilChat()
         {
             CreateMap<ChatConversacion, ChatConversacionResponse>();
             CreateMap<ChatMensaje, ChatMensajeResponse>();

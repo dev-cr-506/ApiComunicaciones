@@ -6,16 +6,15 @@ namespace AutoBarato.Comunicaciones.Infrastructure.DataAccess
 {
     public class ComunicacionesDbContext : DbContext
     {
-        public ComunicacionesDbContext(DbContextOptions<ComunicacionesDbContext> options) : base(options) { }
+        public ComunicacionesDbContext(DbContextOptions<ComunicacionesDbContext> opciones) : base(opciones) { }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder constructorDeModelo)
         {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<ChatConversacion>().HasNoKey(); // Solo si es intencional
-            modelBuilder.Entity<ChatMensaje>().HasNoKey(); // Solo si es intencional
+            base.OnModelCreating(constructorDeModelo);
+            constructorDeModelo.Entity<ChatConversacion>().HasNoKey(); 
+            constructorDeModelo.Entity<ChatMensaje>().HasNoKey(); 
 
-            // 🔹 Aplica todas las configuraciones de entidades desde Infrastructure.Configurations
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ComunicacionesDbContext).Assembly);
+            constructorDeModelo.ApplyConfigurationsFromAssembly(typeof(ComunicacionesDbContext).Assembly);
         }
     }
 }

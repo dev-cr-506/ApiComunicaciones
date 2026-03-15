@@ -1,10 +1,11 @@
 ﻿using AutoBarato.Comunicaciones.Api;
+using AutoBarato.Comunicaciones.Application;
 using AutoBarato.Comunicaciones.Application.DependencyInjection;
 using AutoBarato.Comunicaciones.Domain.Configuration;
-using AutoBarato.Comunicaciones.Infrastructure.DataAccess;
 using AutoBarato.Comunicaciones.Infrastructure.DependencyInjection;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -39,7 +40,15 @@ void ConfigureServices(WebApplicationBuilder builder)
     builder.Services.AddSignalR();
     builder.Services.AddHttpContextAccessor();
     // 🎨 AutoMapper con todos los perfiles del proyecto
-    builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+    builder.Services.AddSingleton<IMapper>(provider =>
+    {
+        var config = new MapperConfiguration(cfg =>
+        {
+            cfg.AddMaps(typeof(MarcadorDeEnsambladoAplicacion).Assembly);
+        }, provider.GetRequiredService<ILoggerFactory>());
+
+        return config.CreateMapper();
+    });
 
     // 📡 Servicios API (controllers, swagger, compresión)
     ConfigureApiServices(builder.Services);

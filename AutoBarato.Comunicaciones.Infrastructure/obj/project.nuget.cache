@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cVc4AtrBKjU=",
+  "dgSpecHash": "RYDQ+p2Vzzs=",
   "success": true,
   "projectFilePath": "C:\\Users\\rjbrizuelah\\Documents\\GitHub\\ApiComunicaciones\\AutoBarato.Comunicaciones.Infrastructure\\AutoBarato.Comunicaciones.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rjbrizuelah\\.nuget\\packages\\automapper\\16.1.0\\automapper.16.1.0.nupkg.sha512",
-    "C:\\Users\\rjbrizuelah\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\rjbrizuelah\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\rjbrizuelah\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",
     "C:\\Users\\rjbrizuelah\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.3.0\\microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",

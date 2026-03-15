@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace AutoBarato.Comunicaciones.Application.DTOs.Response.Comunicaciones
 {
     public class ChatMensajeResponse
@@ -12,7 +7,7 @@ namespace AutoBarato.Comunicaciones.Application.DTOs.Response.Comunicaciones
         public Guid ConversationId { get; set; }
         public int RemitenteId { get; set; }
         public string? Texto { get; set; }
-        public string TipoMensaje { get; set; } = "TEXT";
+        public string TipoMensaje { get; set; } 
         public string? MediaUrl { get; set; }
         public string? MediaThumbnailUrl { get; set; }
         public DateTime FechaEnvio { get; set; }
